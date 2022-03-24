@@ -1,0 +1,9 @@
+POST http://localhost:3000/api/tools/generator-power/ HTTP/1.1
+content-type: application/json
+
+{
+    "data": [
+        { "type": "ac", "power": 10, "unit": "kw", "quantity": 1 },
+        { "type": "heater", "power": 14, "unit": "kw", "quantity": 2 }
+    ]
+}

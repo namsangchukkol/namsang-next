@@ -1,0 +1,203 @@
+{
+    "_createdAt": "2022-02-08T05:05:56Z",
+    "_id": "09558595-1c15-4f47-b2c4-e918c4218bfa",
+    "_rev": "Zf5uaF7K2ha1Qv2BZkMiuJ",
+    "_type": "home",
+    "_updatedAt": "2022-02-09T16:32:15Z",
+    "banner": {
+        "_type": "banner",
+        "singleImage": {
+            "_type": "singleImage",
+            "alt": "Cover",
+            "singleImage": {
+                "_type": "image",
+                "asset": {
+                    "_ref": "image-00914af6c723d3092373ff8cc171868e25ed44b8-1920x1080-png",
+                    "_type": "reference"
+                }
+            },
+            "title": "Cover"
+        },
+        "textBox": {
+            "_type": "textBox",
+            "ctaButton": {
+                "_type": "ctaButton",
+                "ctaButtonLabel": "Contact Us",
+                "ctaButtonSlug": {
+                    "_type": "slug",
+                    "current": "contact-us"
+                }
+            },
+            "subtitle": [
+                {
+                    "_key": "2e0471336401",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "9a5c6493b0250",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,"
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                }
+            ],
+            "title": "NAMSANG CHAKOL"
+        }
+    },
+    "bannerPriceSection": {
+        "bannerPrice": 20000,
+        "bannerPriceTitle": "ราคาไฟฟ้า",
+        "ctaButton": {
+            "_type": "ctaButton",
+            "ctaButtonLabel": "ดูรุ่นที่เหมาะสม",
+            "ctaButtonSlug": {
+                "_type": "slug",
+                "current": "products"
+            }
+        }
+    },
+    "blogSection": {
+        "blogSection": [
+            {
+                "_key": "d3f863c25d69",
+                "_ref": "856dc534-0ae6-4213-a93c-3b6e10366219",
+                "_type": "blogs"
+            },
+            {
+                "_key": "14979f55b6b7",
+                "_ref": "856dc534-0ae6-4213-a93c-3b6e10366219",
+                "_type": "blogs"
+            }
+        ]
+    },
+    "inputField": {
+        "firstInput": "ค่าพลังงานไฟฟ้า",
+        "inputTitle": "คำนวณไฟฟ้าที่ต้องใช้",
+        "secondInput": "ราคาไฟฟ้าต่อหน่วย"
+    },
+    "machineSection": {
+        "_type": "machineSection",
+        "productsImages": [],
+        "textBox": {
+            "_type": "textBox",
+            "subtitle": [
+                {
+                    "_key": "ea796f3bfcac",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "1f6fa08a8b740",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,"
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                }
+            ],
+            "title": "Used Machine"
+        }
+    },
+    "metaData": {
+        "_type": "metaData",
+        "language": {
+            "_ref": "dd6acf2e-2eff-49c4-b85e-2bd0aa15965b",
+            "_type": "reference"
+        },
+        "metaDescription": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,",
+        "metaTitle": "NAMSANG CHAKOL"
+    },
+    "pageName": "Home",
+    "productSection": {
+        "_type": "productSection",
+        "productsImages": [
+            {
+                "_key": "f86aa8da7041",
+                "_ref": "f2c7d7fc-5b01-426a-afe0-160c639294b3",
+                "_type": "products"
+            },
+            {
+                "_key": "418d56afa39b",
+                "_ref": "f2c7d7fc-5b01-426a-afe0-160c639294b3",
+                "_type": "products"
+            },
+            {
+                "_key": "5f78d6927bef",
+                "_ref": "f2c7d7fc-5b01-426a-afe0-160c639294b3",
+                "_type": "products"
+            },
+            {
+                "_key": "1a1a06fd410f",
+                "_ref": "f2c7d7fc-5b01-426a-afe0-160c639294b3",
+                "_type": "products"
+            }
+        ],
+        "textBox": {
+            "_type": "textBox",
+            "ctaButton": {
+                "_type": "ctaButton",
+                "ctaButtonLabel": "Contact Us",
+                "ctaButtonSlug": {
+                    "_type": "slug",
+                    "current": "contact"
+                }
+            },
+            "subtitle": [
+                {
+                    "_key": "6e92d2a346b6",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "c417d9134dc20",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,"
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                }
+            ],
+            "title": "Our Product"
+        }
+    },
+    "workSection": {
+        "_type": "workSection",
+        "singleImage": {
+            "_ref": "7fa36eff-32f1-4544-a1ef-d7a6d68aab5f",
+            "_type": "reference"
+        },
+        "textBox": {
+            "_type": "textBox",
+            "ctaButton": {
+                "_type": "ctaButton",
+                "ctaButtonLabel": "Read More",
+                "ctaButtonSlug": {
+                    "_type": "slug",
+                    "current": "work"
+                }
+            },
+            "subtitle": [
+                {
+                    "_key": "e7fdc335979e",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "cd3712ac8e380",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,"
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                }
+            ],
+            "title": "Our Work"
+        }
+    }
+}

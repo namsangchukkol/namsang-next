@@ -1,0 +1,8 @@
+// for the first image
+
+.blog_slider aside:nth-child(1) {
+  @apply mb-10 lg:mb-0 md:mb-0;
+  .blog_image {
+    @apply w-[100%] h-[310px] rounded-2xl;
+  }
+}
