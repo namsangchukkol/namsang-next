@@ -5,7 +5,7 @@ import AppButton from '../../components/button/AppButton';
 import FeaturedArticle from '../../components/blogs/FeaturedArticle';
 import AppSlider from '../../components/Slider/Slider';
 import { featuredArticles } from '../../settings/carousel.settings';
-// import style from '../../styles/Blogs.module.scss'
+import style from '../../styles/Blogs.module.scss';
 import blogsQuery from '../../sanity/queries/blogsPage';
 import client from '../../sanityClient/client';
 import { useFilterer } from '../../helper/dataFilterer';
@@ -75,7 +75,7 @@ export default function BlogsPage({ pageContent, blogsContent }) {
           บทความเด่น
         </h2>
         <div
-        //   className={`${style.blog_slider} grid grid-cols-${gridConfig.container.grid_cols} gap-4`}
+          className={`${style.blog_slider} grid grid-cols-${gridConfig.container.grid_cols} gap-4`}
         >
           {blogsContent?.map((blog, index) => (
             <aside
@@ -90,7 +90,7 @@ export default function BlogsPage({ pageContent, blogsContent }) {
                                              } gap-3
                                             `}
             >
-              {/* <div
+              <div
                 className={`w-full ${style?.blog_image1} ${gridConfig.card.imazeSize1} 
                                                  relative rounded-2xl grid place-items-center h-full w-full`}
               >
@@ -101,7 +101,7 @@ export default function BlogsPage({ pageContent, blogsContent }) {
                   alt={blog?.singleImage?.alt}
                   className="rounded-3xl object-center"
                 />
-              </div> */}
+              </div>
               <p className="text-base text-left font-thin">
                 {blog?.blogContent?.shortDesc}
               </p>

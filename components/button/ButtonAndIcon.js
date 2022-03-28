@@ -3,14 +3,14 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { IoIosArrowForward } from 'react-icons/io'
 
-function ButtonAndIcon({
-        title,
-        to = '#',
-        justify = "start",
-        txtColor = "text-white",
-        theme = 'white',
-        scrollLink = false,
-    }) {
+const ButtonAndIcon = ({
+    title,
+    to = '#',
+    justify = "start",
+    txtColor = "text-white",
+    theme = 'white',
+    scrollLink = false,
+}) => {
     const [currentTheme, setTheme] = useState(theme)
 
     const themeList = {

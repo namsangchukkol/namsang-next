@@ -5,7 +5,7 @@ import { MdPhoneInTalk } from 'react-icons/md';
 import { FaFax } from 'react-icons/fa';
 import { commonData } from '../../recoil/atoms';
 import AppButton from '../button/AppButton';
-import { Icon } from '../../pages/contact';
+import { ContactIcon } from '../reusables/ContactIcon';
 
 export default function MapSection() {
   const data = useRecoilValue(commonData);
@@ -55,8 +55,8 @@ export default function MapSection() {
         <br />
         {currentField ? (
           <aside className="grid grid-cols-2 mx-10">
-            <Icon Icon={MdPhoneInTalk} number={currentField?.mobile} />
-            <Icon Icon={FaFax} number={currentField?.fixedPhone} />
+            <ContactIcon Icon={MdPhoneInTalk} number={currentField?.mobile} />
+            <ContactIcon Icon={FaFax} number={currentField?.fixedPhone} />
           </aside>
         ) : (
           <AppButton

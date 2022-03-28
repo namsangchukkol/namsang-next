@@ -1,8 +1,8 @@
-import '../styles/globals.css'
-import Head from 'next/head'
-import { RecoilRoot } from 'recoil'
-import { DataGetter } from '../data/dataGetter'
-import DefaultLayout from '../components/layout/DefaultLayout'
+import '../styles/globals.css';
+import Head from 'next/head';
+import { RecoilRoot } from 'recoil';
+import { DataGetter } from '../data/dataGetter';
+import DefaultLayout from '../components/layout/DefaultLayout';
 
 function MyApp({ Component, pageProps, router }) {
   return (
@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps, router }) {
         </DefaultLayout>
       </RecoilRoot>
     </>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

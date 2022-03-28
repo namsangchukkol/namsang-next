@@ -7,6 +7,8 @@ import { commonData } from '../../recoil/atoms';
 import contactPage from '../../sanity/queries/contactPage';
 import client from '../../sanityClient/client';
 import { useFilterer } from '../../helper/dataFilterer';
+import { ContactIcon } from '../../components/reusables/ContactIcon';
+
 
 function ContactComponent({ content }) {
   return (
@@ -14,23 +16,11 @@ function ContactComponent({ content }) {
       <h2 className="text-title text-red-main">{content?.name}</h2>
       <p>{content?.description}</p>
       <aside>
-        <Icon Icon={MdPhoneInTalk} number={content?.mobile} />
-        <Icon Icon={FaFax} number={content?.fixedPhone} />
+        <ContactIcon Icon={MdPhoneInTalk} number={content?.mobile} />
+        <ContactIcon Icon={FaFax} number={content?.fixedPhone} />
+
       </aside>
     </section>
-  );
-}
-
-export function Icon({ Icon, number }) {
-  return (
-    <div className="flex my-4">
-      <div className="bg-red-main w-[25px] h-[25px] grid place-items-center rounded-md">
-        <Icon color="white" />
-      </div>
-      <a href={`tel:${number}`} className="ml-4">
-        {number}
-      </a>
-    </div>
   );
 }
 
