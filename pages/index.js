@@ -1,4 +1,4 @@
-import Banner from '../components/banner/Banner'
+import Banner from '../components/reusables/Banner'
 import BlogSection from '../components/sections/BlogSection'
 import MachineSection from '../components/sections/MachineSection'
 import MapSection from '../components/sections/MapSection'
@@ -12,13 +12,13 @@ export default function Home({ pageContent }) {
   const { metadata, body } = pageContent
   return (
     <div>
-        <Banner content={useFilterer(body, 'bannerTemplate')} />
-        <ProductSection data={useFilterer(body, 'productSection')} />
-        <MachineSection data={useFilterer(body, 'machineSection')} />
-        <WorkSection data={useFilterer(body, 'workSection')} />
-        <BlogSection data={useFilterer(body, 'blogSection')} />
-        <MapSection />
-      </div>
+      <Banner content={useFilterer(body, 'bannerTemplate')} />
+      <ProductSection data={useFilterer(body, 'productSection')} />
+      <MachineSection data={useFilterer(body, 'machineSection')} />
+      <WorkSection data={useFilterer(body, 'workSection')} />
+      <BlogSection data={useFilterer(body, 'blogSection')} />
+      <MapSection />
+    </div>
   )
 }
 

@@ -1,6 +1,6 @@
 import SanityBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
-import OtherBlogs from '../../components/blogs/OtherBlogs';
+import OtherBlogs from '../../components/widgets/blogs/OtherBlogs';
 
 export default function Blog() {
   return (

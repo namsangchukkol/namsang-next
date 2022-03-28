@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import Image from 'next/image';
-import AppButton from '../../components/button/AppButton';
-import FeaturedArticle from '../../components/blogs/FeaturedArticle';
-import AppSlider from '../../components/Slider/Slider';
+import AppButton from '../../components/widgets/AppButton';
+import FeaturedArticle from '../../components/widgets/blogs/FeaturedArticle';
+import AppSlider from '../../components/reusables/Slider';
 import { featuredArticles } from '../../settings/carousel.settings';
 import style from '../../styles/Blogs.module.scss';
 import blogsQuery from '../../sanity/queries/blogsPage';

@@ -1,10 +1,10 @@
 import React from 'react';
-import Banner from '../../components/banner/Banner';
+import Banner from '../../components/reusables/Banner';
 import BenefitSection from '../../components/sections/BenefitSection';
 import ContactSection from '../../components/sections/ContactSection';
 import OurClient from '../../components/sections/OurClient';
-import ContentWithImages from '../../components/templates/ContentWithImages';
-import ProductGalleryList from '../../components/templates/ProductGalleryList';
+import ContentWithImages from '../../components/reusables/ContentWithImages';
+import ProductGalleryList from '../../components/widgets/products/ProductGalleryList';
 import { useFilterer } from '../../helper/dataFilterer';
 import productPage from '../../sanity/queries/productPage';
 import client from '../../sanityClient/client';

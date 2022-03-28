@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { sanityImage } from '../../helper/imageUrl';
-import ImageList from '../images/ImageList';
+import ImageList from './ImageList';
 
 export default function ContentWithImages({ data }) {
   const { featuredImage, productGallery, textFieldBtn } = data?.content;

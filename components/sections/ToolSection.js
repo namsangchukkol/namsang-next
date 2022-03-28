@@ -2,7 +2,7 @@ import SanityBlockContent from '@sanity/block-content-to-react';
 import Image from 'next/image';
 import React from 'react';
 import { sanityImage } from '../../helper/imageUrl';
-import ButtonAndIcon from '../button/ButtonAndIcon';
+import ButtonAndIcon from '../widgets/ButtonAndIcon';
 
 export default function Tools({ content }) {
   const { singleImage, textFieldBtn } = content;

@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { sanityImage } from "../../helper/imageUrl";
-import AppButton from "../button/AppButton";
-import SimpleInput from "../simpleInput/SimpleInput";
-import ContactForm from '../input/Form'
+import AppButton from "../widgets/AppButton";
+import SimpleInput from "../reusables/SimpleInput";
+import ContactForm from './Form'
 
 export default function Banner({ content, textColor }) {
   const { banner } = content

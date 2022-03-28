@@ -1,5 +1,5 @@
 import React from 'react'
-import Social from "./Social"
+import Social from "../reusables/Social"
 
 export default function SocialMediaContainer() {
     return (

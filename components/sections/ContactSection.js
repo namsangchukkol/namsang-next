@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { sanityImage } from '../../helper/imageUrl'
-import AppButton from '../button/AppButton'
+import AppButton from '../widgets/AppButton'
 
 export default function ContactSection({ data, opacity = 1 }) {
     const color = data?.color

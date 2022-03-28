@@ -2,8 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { sanityImage } from '../../helper/imageUrl';
-import { commonData } from '../../recoil/atoms';
+import { sanityImage } from '../../../helper/imageUrl';
+import { commonData } from '../../../recoil/atoms';
 
 export default function ProductGalleryList(props) {
   const { title, more = true, moreButton } = props;

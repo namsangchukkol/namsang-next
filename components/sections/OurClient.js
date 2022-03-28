@@ -1,7 +1,7 @@
 import SanityBlockContent from '@sanity/block-content-to-react'
 import React from 'react'
 import { defaultSettings, ourClientSettings, ourClientSlides } from '../../settings/carousel.settings'
-import AppSlider from '../Slider/Slider'
+import AppSlider from '../reusables/Slider'
 
 export default function OurClient({ data }) {
     const { textField, slides, clientLogo } = data

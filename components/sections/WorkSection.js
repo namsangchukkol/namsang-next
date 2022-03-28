@@ -3,8 +3,8 @@ import Image from "next/image";
 import React from "react";
 import { sanityImage } from "../../helper/imageUrl";
 import { defaultSettings } from "../../settings/carousel.settings";
-import AppButton from "../button/AppButton";
-import AppSlider from "../Slider/Slider";
+import AppButton from "../widgets/AppButton";
+import AppSlider from "../reusables/Slider";
 
 export default function WorkSection({ data }) {
   const { textFieldBtn, bgImage, imageGallery } = data;

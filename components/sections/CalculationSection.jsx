@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { FiPlus } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
-import ButtonAndIcon from '../button/ButtonAndIcon';
-import SimpleInput from '../simpleInput/SimpleInput';
+import ButtonAndIcon from '../widgets/ButtonAndIcon';
+import SimpleInput from '../reusables/SimpleInput';
 import styles from '../../styles/CalculationSection.module.scss';
 
 const options = [

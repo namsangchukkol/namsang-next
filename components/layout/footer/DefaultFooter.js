@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
 import { commonData } from "../../../recoil/atoms";
-import FormSection from "../../input/FormSection";
+import FormSection from "../../sections/FormSection";
 
 export default function Footer() {
   const data = useRecoilValue(commonData)

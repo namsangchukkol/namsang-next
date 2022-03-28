@@ -1,6 +1,6 @@
 import React from 'react'
-import { otherBlogSettings } from '../../settings/carousel.settings'
-import AppSlider from '../Slider/Slider'
+import { otherBlogSettings } from '../../../settings/carousel.settings'
+import AppSlider from '../../reusables/Slider'
 import BlogCard from './BlogCard'
 
 export default function OtherBlogs() {

@@ -1,12 +1,12 @@
 import aboutQuery from '../../sanity/queries/aboutPage';
 import client from '../../sanityClient/client';
-import Banner from '../../components/banner/Banner';
+import Banner from '../../components/reusables/Banner';
 import { useFilterer } from '../../helper/dataFilterer';
 import OurServices from '../../components/sections/OurServices';
 import OurHistory from '../../components/sections/OurHistory';
 import ContactSection from '../../components/sections/ContactSection';
 import BenefitSection from '../../components/sections/BenefitSection';
-import ProductGalleryList from '../../components/templates/ProductGalleryList';
+import ProductGalleryList from '../../components/widgets/products/ProductGalleryList';
 
 export default function About({ pageContent }) {
   const { metaData, body } = pageContent;

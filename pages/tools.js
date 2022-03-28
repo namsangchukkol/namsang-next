@@ -1,6 +1,6 @@
 import React from 'react'
-import Banner from '../components/banner/Banner'
-import ImageList from '../components/images/ImageList'
+import Banner from '../components/reusables/Banner'
+import ImageList from '../components/reusables/ImageList'
 import CalculationSection from '../components/sections/CalculationSection'
 import ToolSection from '../components/sections/ToolSection'
 import { useFilterer } from '../helper/dataFilterer'

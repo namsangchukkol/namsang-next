@@ -2,7 +2,7 @@ import BlockContent from "@sanity/block-content-to-react";
 import Image from "next/image";
 import React from "react";
 import { defaultSettings } from "../../settings/carousel.settings";
-import AppSlider from "../Slider/Slider";
+import AppSlider from "../reusables/Slider";
 import { sanityImage } from "../../helper/imageUrl";
 
 export default function MachineSection({ data }) {

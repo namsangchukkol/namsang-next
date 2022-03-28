@@ -1,7 +1,7 @@
 import Head from "next/head"
 import Navbar from "./navbar/DefaultNavbar"
 import Footer from "./footer/DefaultFooter"
-import SocialMediaContainer from "../badges/SocialMediaContainer"
+import SocialMediaContainer from "../sections/SocialMediaContainer"
 
 export default function DefaultLayout({ children, ...props }) {
   const metaTitle = props.metaData?.metaTitle
