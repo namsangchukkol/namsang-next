@@ -11,7 +11,6 @@ export default function ContentWithImages({ data }) {
     const { title, content, ctaButton } = textFieldBtn
     const objImg = sanityImage(featuredImage?.singleImage)
 
-
     return (
         <section className='pt-10'>
             <aside className='relative w-full h-full lg:h-[400px]'>
