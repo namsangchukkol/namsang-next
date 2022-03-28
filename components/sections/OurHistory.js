@@ -12,8 +12,10 @@ export default function OurHistory({ content }) {
                     key={index}
                 >
                     <div>
-                        <div className={`history_text w-2/3 mb-10
-                                        ${index % 2 ? 'lg:pl-10' : 'pl-0'}`}>
+                        <div
+                            className={`history_text w-2/3 mb-10
+                                            ${index % 2 ? 'lg:pl-10' : 'pl-0'}`}
+                        >
                             <SanityBlockContent blocks={history.blockContent} />
                         </div>
                     </div>

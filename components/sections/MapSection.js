@@ -72,15 +72,8 @@ export default function MapSection() {
         {map?.locations?.map((location, index) => (
           <button
             key={index}
-            className={`px-2 mx-2 h-10  
-                                    hover:bg-red-main text-white
-                                     border-none rounded-xl
-                                    ${
-                                      currentIndex === index
-                                        ? 'bg-red-main'
-                                        : 'bg-grey-extralight'
-                                    }
-                                    `}
+            className={`px-2 mx-2 h-10 hover:bg-red-main text-white border-none rounded-xl`}
+            style={{ backgroundColor: currentIndex === index ? '#BE1E2D' : '#D0D0D0' }}
             onClick={() => onChoosingLocation(index, location)}
           >
             {location.contactDetail.name}
