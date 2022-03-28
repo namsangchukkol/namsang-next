@@ -25,27 +25,27 @@ export default function SingleProduct({ pageContent }) {
         </aside>
         <aside className="flex flex-col lg:w-1/2 pt-10 lg:pt-0">
           <h2 className="text-title text-red-main font-bold">
-            {p.productContent.productTitle}
+            {p?.productContent.productTitle}
           </h2>
           <br />
           <p>
             Product Name:
-            <span className="font-bold text-xl ml-2">{p.productName}</span>
+            <span className="font-bold text-xl ml-2">{p?.productName}</span>
           </p>
           <br />
-          <p>Product Code: {p.productCode} </p>
+          <p>Product Code: {p?.productCode} </p>
           <br />
-          <p>Status: {p.productStatus.title}</p>
+          <p>Status: {p?.productStatus.title}</p>
           <br />
           <p>Description:</p>
           <br />
-          <SanityBlockContent blocks={p.productContent.productDescription} />
+          <SanityBlockContent blocks={p?.productContent.productDescription} />
           <br />
           <AppButton title="Contact Us" to="/contact" />
         </aside>
       </section>
       <section className="my-20">
-        <Highlights content={p.productHighlights} />
+        <Highlights content={p?.productHighlights} />
       </section>
     </main>
   );
