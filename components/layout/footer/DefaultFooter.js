@@ -12,9 +12,9 @@ export default function Footer() {
 
 
   const runThroughList = (lists) => {
-    let toFind = lists.filter(list => list === currentPathname)[0]
+    const toFind = lists.filter(list => list === currentPathname)[0]
     if (toFind === undefined) return true
-    else return false
+    return false
   }
 
   return (

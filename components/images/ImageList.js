@@ -6,8 +6,7 @@ import { sanityImage } from '../../helper/imageUrl'
 
 export default function ImageList({ images, basePath = '', simpleImage = false }) {
     return (
-        <>
-            <section className='px-indent-sm lg:px-indent flex flex-wrap justify-between items-center w-full my-14 '>
+        <section className='px-indent-sm lg:px-indent flex flex-wrap justify-between items-center w-full my-14 '>
                 {images && images?.map((image, index) =>
                     <ImageCard
                         image={image}
@@ -18,11 +17,10 @@ export default function ImageList({ images, basePath = '', simpleImage = false }
                         simpleImage={simpleImage}
                     />)}
             </section>
-        </>
     )
 }
 
-const ImageCard = ({ image, slug, name, basePath, simpleImage }) => {
+function ImageCard({ image, slug, name, basePath, simpleImage }) {
     const [showText, setText] = useState(false)
     const { singleImage, alt, title } = image
     let imgObj = null
@@ -32,16 +30,16 @@ const ImageCard = ({ image, slug, name, basePath, simpleImage }) => {
         imgObj = sanityImage(singleImage.singleImage)
     }
 
-    const Type = ({ children }) => {
+    function Type({ children }) {
         if (!simpleImage) {
             return (
                 <Link href={`/${basePath}/${slug}`} passHref>
                     {children}
                 </Link>
             )
-        } else {
+        } 
             return <aside>{children}</aside>
-        }
+        
     }
 
     return (

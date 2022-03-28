@@ -10,29 +10,30 @@ import AppSlider from "../Slider/Slider";
 
 export default function ProductSection({ data }) {
   const { title, content, ctaButton } = data?.textFieldBtn
-  const productsImages = data.productsImages
+  const {productsImages} = data
 
 
-  const ProductImage = ({ image }) => {
-    const imgUrl = sanityImage(image.singleImage)
+  function ProductImage({ image }) {
+    const imgUrl = sanityImage(image?.singleImage)
     return (
       <div className="relative m-2">
-        <Image {...imgUrl} layout="fixed" width={300} height={300} />
+        <Image {...imgUrl} layout="fixed" width={300} height={300} alt={image?.alt} />
       </div>
     )
   }
 
-  const ProductImageSlider = ({ image }) => {
+  function ProductImageSlider({ image }) {
     const imgUrl = sanityImage(image.singleImage)
     return (
       <div className="relative flex justify-center items-center m-auto w-[95vw] h-[50vh] rounded-lg overflow-hidden">
-        <Image {...imgUrl} layout="fill" objectFit="cover" />
+        <Image {...imgUrl} layout="fill" objectFit="cover" alt={image.alt} />
       </div>
     )
   }
   return (
     <main className="flex lg:flex-row flex-col items-start text-grey lg:mx-indent md:mx-indent-sm mx-indent-xsm lg:mt-indent mt-4">
-      {/* Desktop */}
+
+      {/* mobile screen */}
       <section className="">
         <h2 className="text-4xl my-5">{title}</h2>
         <div className="lg:hidden md:hidden w-[95vw] mx-auto h-auto my-14">
@@ -49,6 +50,8 @@ export default function ProductSection({ data }) {
           to={ctaButton?.ctaButtonSlug}
         />
       </section>
+
+      {/* large screen */}
       <section className="relative hidden lg:flex md:flex justify-center items-center w-full lg:ml-4 ml-0 rounded-lg lg:mt-0 md:mt-10">
         <aside className="flex flex-col -mt-20">
           <ProductImage index={1} image={productsImages[0]} />

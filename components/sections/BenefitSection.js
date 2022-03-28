@@ -17,7 +17,7 @@ export default function BenefitSection({ data, withPaddingTop = false }) {
 }
 
 
-const BenefitImage = ({ image }) => {
+function BenefitImage({ image }) {
     const { title, alt, singleImage } = image
     const imgObj = sanityImage(singleImage)
     return (

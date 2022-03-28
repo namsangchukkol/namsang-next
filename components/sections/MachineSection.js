@@ -26,7 +26,7 @@ export default function MachineSection({ data }) {
   );
 }
 
-const MachineImage = ({ product }) => {
+function MachineImage({ product }) {
   const { singleImage } = product
   const imageObj = sanityImage(singleImage?.singleImage)
   return (

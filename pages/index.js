@@ -11,8 +11,7 @@ import sanityClient from '../sanityClient/client'
 export default function Home({ pageContent }) {
   const { metadata, body } = pageContent
   return (
-    <>
-      <div>
+    <div>
         <Banner content={useFilterer(body, 'bannerTemplate')} />
         <ProductSection data={useFilterer(body, 'productSection')} />
         <MachineSection data={useFilterer(body, 'machineSection')} />
@@ -20,7 +19,6 @@ export default function Home({ pageContent }) {
         <BlogSection data={useFilterer(body, 'blogSection')} />
         <MapSection />
       </div>
-    </>
   )
 }
 

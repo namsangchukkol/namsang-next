@@ -39,14 +39,14 @@ export default function OurClient({ data }) {
 }
 
 
-const ClientLogo = () => {
+function ClientLogo() {
     return (
         <div className='w-[80px] h-[80px] bg-gray-300 text-white grid place-items-center text-center rounded-lg m-2 mx-auto'>
             Client logo
         </div>
     )
 }
-const Slide = ({ text }) => {
+function Slide({ text }) {
     return (
         <div className='w-full h-[200px] bg-red-200 text-2xl text-white grid place-items-center text-left rounded-lg p-5'>
             {text}

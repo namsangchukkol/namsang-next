@@ -21,7 +21,7 @@ export default function Banner({ content, textColor }) {
   } = banner
   const image = sanityImage(singleImage.singleImage)
 
-  const BannerTemplate = () => {
+  function BannerTemplate() {
     switch (banner?.banner.template) {
       case 'default': return <TextField content={bannerTemplate1} textColor={textColor} />;
       case 'contactForm': return <Form content={bannerTemplate2} />
@@ -59,7 +59,7 @@ export default function Banner({ content, textColor }) {
             <div className="hidden lg:grid absolute transform top-1/2 -translate-y-1/2 -left-2 my-auto mx-auto w-[1px] bg-white h-[120px]" />
             <h4 >{bannerPriceTitle}</h4>
             <h2 className="text-6xl py-4">{bannerPrice}.-</h2>
-            <Link href='/tools' passHref={true}>
+            <Link href='/tools' passHref>
               <p
                 className="text-sm text-right cursor-pointer"
                 href="">
@@ -72,7 +72,7 @@ export default function Banner({ content, textColor }) {
   );
 }
 
-const TextField = ({ content, textColor = "white" }) => {
+function TextField({ content, textColor = "white" }) {
   const { title, ctaButtonSlug } = content.content.ctaButton
   return (
     <aside className={`absolute top-1/2 transform lg:-translate-y-1/2 -translate-y-3/4 lg:ml-indent md:ml-indent lg:mr-0 ml-indent-xsm mr-indent-xsm text-${textColor}`}>
@@ -90,7 +90,7 @@ const TextField = ({ content, textColor = "white" }) => {
 }
 
 
-const Form = ({ content }) => {
+function Form({ content }) {
   return (
     <div className="absolute top-20 xl:top-1/2 xl:-translate-y-1/2 lg:top-28 left-1/2 lg:left-20 transform -translate-x-1/2 lg:-translate-x-0 bg-white w-[90vw] lg:w-[35vw] mx-auto
       rounded-md lg:px-10 p-4 py-8 shadow-lg">

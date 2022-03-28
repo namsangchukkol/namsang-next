@@ -12,7 +12,7 @@ export default function WorkSection({ data }) {
 
   return (
     <main className="relative bg-grey-light h-screen flex items-center justify-start text-grey px-indent">
-      <section className="lg:flex hidden bg-grey-light w-full h-[60vh]"></section>
+      <section className="lg:flex hidden bg-grey-light w-full h-[60vh]" />
       <section className="lg:w-2/3 w-full">
         <section className="text-start mb-10">
           <h2 className="text-4xl my-5">{title}</h2>
@@ -37,7 +37,7 @@ export default function WorkSection({ data }) {
   );
 }
 
-const WorkImage = ({ image }) => {
+function WorkImage({ image }) {
   const { alt, title } = image
   const imgObj = sanityImage(image.singleImage)
   return (

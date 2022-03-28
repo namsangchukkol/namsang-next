@@ -50,7 +50,7 @@ export default function SingleProduct({ pageContent }) {
 }
 
 
-const Highlights = ({ content }) => {
+function Highlights({ content }) {
     return (
         <section className='flex flex-wrap w-full'>
             <aside className='lg:w-1/2'>
@@ -81,7 +81,7 @@ const Highlights = ({ content }) => {
     )
 }
 
-const MyImage = ({ image }) => {
+function MyImage({ image }) {
     const { singleImage, alt, title } = image
     const imgObj = sanityImage(singleImage)
     return (
@@ -93,14 +93,13 @@ const MyImage = ({ image }) => {
 
 
 export async function getStaticPaths() {
-    const _slugs = await client.fetch(productSlug)
-    const paths = _slugs.map(res => {
-        return {
-            params: { product: res.slug.current }
-        }
-    })
+
+    const slugs = await client.fetch(productSlug)
+    const paths = slugs.map(res => ({
+        params: { product: res.slug.current }
+    }))
     return {
-        paths: paths,
+        paths,
         fallback: false
     }
 }

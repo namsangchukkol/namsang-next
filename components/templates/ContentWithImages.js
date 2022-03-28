@@ -38,7 +38,7 @@ export default function ContentWithImages({ data }) {
 }
 
 
-const Button = ({ title, button }) => {
+function Button({ title, button }) {
     return (
         <Link href={button} passHref>
             <div className='flex my-5 cursor-pointer'>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Social from '../badges/Social'
+import Social from "./Social"
 
 export default function SocialMediaContainer() {
     return (

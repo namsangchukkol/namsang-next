@@ -1,8 +1,8 @@
 import '../styles/globals.css'
-import DefaultLayout from '../components/layout/DefaultLayout'
 import Head from 'next/head'
 import { RecoilRoot } from 'recoil'
 import { DataGetter } from '../data/dataGetter'
+import DefaultLayout from '../components/layout/DefaultLayout'
 
 function MyApp({ Component, pageProps, router }) {
   return (

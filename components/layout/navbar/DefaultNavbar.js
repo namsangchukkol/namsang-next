@@ -13,7 +13,7 @@ export default function Navbar(context) {
   const scrolled = useScroll()
   const path = router.asPath
   const data = useRecoilValue(commonData)
-  const header = data[`header`]
+  const {header} = data
   const languageOptions = router.locales.map(locale => <Link href={path} locale={locale} key={locale}><span classNameNameName="mx-5 cursor-pointer">{locale}</span></Link>)
 
   return (
@@ -34,7 +34,7 @@ export default function Navbar(context) {
                   href={`/${list?.slug === 'home' ? '' : list?.slug}`}
                   passHref
                   key={index}>
-                  <p className={`btn btn-ghost btn-sm rounded-btn text-grey normal-case mx-5`}>
+                  <p className="btn btn-ghost btn-sm rounded-btn text-grey normal-case mx-5">
                     {list?.menuLabel}
                   </p>
                 </Link>

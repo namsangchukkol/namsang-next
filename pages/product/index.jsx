@@ -1,6 +1,5 @@
 import React from 'react'
 import Banner from '../../components/banner/Banner'
-import FormSection from '../../components/input/FormSection'
 import BenefitSection from '../../components/sections/BenefitSection'
 import ContactSection from '../../components/sections/ContactSection'
 import OurClient from '../../components/sections/OurClient'

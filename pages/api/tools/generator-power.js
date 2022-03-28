@@ -9,26 +9,6 @@
 //     { type: 'light', power: 15, unit: 'w', quantity: 500 }
 // ]
 
-export default async function (req, res) {
-    // limit request to POST only
-    console.log('received request')
-    console.log(`method: ${req.method}`)
-    if (req.method !== 'POST') {
-        res.status(405).send({ message: 'Only POST requests are allowed' })
-        return
-    }
-    const body = req.body.data
-    const result = await getTotalPowerInKVA(body)
-    const totalPower = await getTotalPower(result)
-    const totalKva = await convertWToKva(totalPower)
-
-    return res.status(200).json({
-        status: 'ok',
-        content: result,
-        total: totalPower,
-        totalKva: Math.ceil(totalKva)
-    })
-}
 
 async function getTotalPowerInKVA(dataArr) {
     return new Promise((resolve, reject) => {
@@ -52,7 +32,7 @@ async function changeUnitToW(dataObject) {
     // return all units to watts
 
     return new Promise((resolve, reject) => {
-        //no data
+        // no data
         const data = { ...dataObject }
         if (!data.type) {
             reject('type not found')
@@ -60,13 +40,13 @@ async function changeUnitToW(dataObject) {
         }
 
         const acceptableUnits = ['tonne', 'kw', 'w', 'btu', 'hp']
-        //wrong unit
+        // wrong unit
         if (acceptableUnits.indexOf(data.unit) === -1) {
             reject('unreconginsed unit')
             return
         }
 
-        const power = data.power
+        const { power } = data
 
         switch (data.unit) {
             case 'w':
@@ -100,9 +80,7 @@ async function getTotalPower(dataObject) {
                 dataRow.totalPower = dataRow.power * dataRow.quantity
             })
 
-            const totalPower = dataObject.reduce((a, b) => {
-                return { totalPower: a.totalPower + b.totalPower }
-            })
+            const totalPower = dataObject.reduce((a, b) => ({ totalPower: a.totalPower + b.totalPower }))
             console.log(totalPower)
             resolve(totalPower.totalPower)
         } catch (e) {
@@ -120,5 +98,26 @@ async function convertWToKva(w) {
         } catch (error) {
             reject(error)
         }
+    })
+}
+
+export default async function handler(req, res) {
+    // limit request to POST only
+    console.log('received request')
+    console.log(`method: ${req.method}`)
+    if (req.method !== 'POST') {
+        res.status(405).send({ message: 'Only POST requests are allowed' })
+        return
+    }
+    const body = req.body.data
+    const result = await getTotalPowerInKVA(body)
+    const totalPower = await getTotalPower(result)
+    const totalKva = await convertWToKva(totalPower)
+
+    return res.status(200).json({
+        status: 'ok',
+        content: result,
+        total: totalPower,
+        totalKva: Math.ceil(totalKva)
     })
 }
