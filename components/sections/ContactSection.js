@@ -1,7 +1,6 @@
 import Image from 'next/image';
-import React from 'react';
 import { sanityImage } from '../../helper/imageUrl';
-import AppButton from '../widgets/AppButton';
+import AppButton from '../widgets/AppButton.jsx';
 
 export default function ContactSection({ data, opacity = 1 }) {
   const color = data?.color;
@@ -21,7 +20,7 @@ export default function ContactSection({ data, opacity = 1 }) {
         )}
       </aside>
       <div
-        className={`w-full h-full absolute top-0 left-0 bg-red-main opacity-100 md:opacity-[${opacity}] lg:opacity-[${opacity}]`}
+        className={`w-full h-full absolute top-0 left-0 bg-red-main opacity-100`}
         style={{ backgroundColor: color, opacity: opacity }}
       />
       <aside className="absolute top-1/4 mx-indent-xsm z-10">
@@ -33,7 +32,7 @@ export default function ContactSection({ data, opacity = 1 }) {
           title={ctaButton?.title}
           to={`/${ctaButton?.ctaButtonSlug}`}
           bgColor="white"
-          txtColor="red-main"
+          txtColor="#BE1E2D"
         />
       </aside>
     </section>

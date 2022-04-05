@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { sanityImage } from "../../helper/imageUrl";
 import { defaultSettings } from "../../settings/carousel.settings";
-import AppButton from "../widgets/AppButton";
+import AppButton from "../widgets/AppButton.jsx";
 import AppSlider from "../reusables/Slider";
 
 export default function WorkSection({ data }) {

@@ -1,6 +1,6 @@
 import React from 'react'
-import AppButton from '../widgets/AppButton'
-import FormInput from '../widgets/FormInput'
+import AppButton from '../widgets/AppButton.jsx'
+import FormInput from '../widgets/FormInput.jsx'
 
 export default function FormSection({ content, labelColor }) {
   const { formList, formTitle, formSubmit } = content

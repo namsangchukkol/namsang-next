@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { FiPlus } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
 import ButtonAndIcon from '../widgets/ButtonAndIcon';
-import SimpleInput from '../reusables/SimpleInput';
+import SimpleInput from '../reusables/SimpleInput.jsx';
 import styles from '../../styles/CalculationSection.module.scss';
 
 const options = [
@@ -212,6 +212,8 @@ function CalculationSection({ content }) {
           to="result_section"
           title={content.buttonLabel}
           justify="center"
+          theme="white"
+          txtColor="white"
         />
       </span>
       <Result kva={kva} content={content} />

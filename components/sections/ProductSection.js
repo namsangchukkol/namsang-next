@@ -4,13 +4,13 @@ import React from "react";
 import { useFilterer } from "../../helper/dataFilterer";
 import { sanityImage } from "../../helper/imageUrl";
 import { defaultSettings } from "../../settings/carousel.settings";
-import AppButton from "../widgets/AppButton";
+import AppButton from "../widgets/AppButton.jsx";
 import AppSlider from "../reusables/Slider";
 
 
 export default function ProductSection({ data }) {
   const { title, content, ctaButton } = data?.textFieldBtn
-  const {productsImages} = data
+  const { productsImages } = data
 
 
   function ProductImage({ image }) {

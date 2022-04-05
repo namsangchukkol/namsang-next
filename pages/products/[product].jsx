@@ -1,7 +1,7 @@
 import SanityBlockContent from '@sanity/block-content-to-react';
 import Image from 'next/image';
 import React from 'react';
-import AppButton from '../../components/widgets/AppButton';
+import AppButton from '../../components/widgets/AppButton.jsx';
 import AppSlider from '../../components/reusables/Slider';
 import { sanityImage } from '../../helper/imageUrl';
 import singleProduct, { productSlug } from '../../sanity/queries/singleProduct';

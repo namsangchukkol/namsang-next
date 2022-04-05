@@ -11,12 +11,7 @@ const ButtonAndIcon = ({
   theme = 'white',
   scrollLink = false,
 }) => {
-  const [currentTheme, setTheme] = useState(theme);
-
-  //   const themeList = {
-  //     white: 'text-red-main bg-white',
-  //     red: 'text-white bg-red-main',
-  //   };
+  const [currentTheme, setTheme] = useState({});
 
   const themeList = {
     white: {
@@ -40,6 +35,8 @@ const ButtonAndIcon = ({
     }
   }, [theme]);
 
+  console.log(currentTheme);
+
   return (
     <>
       {!scrollLink ? (
@@ -52,8 +49,9 @@ const ButtonAndIcon = ({
               {title}
             </p>
             <div
-              className={` ${currentTheme} w-[20px] h-[20px] grid place-items-center 
+              className={`w-[20px] h-[20px] grid place-items-center 
                 rounded-full hover:scale-105 translate-all cursor-pointer`}
+              style={currentTheme}
             >
               <IoIosArrowForward />
             </div>
@@ -65,10 +63,13 @@ const ButtonAndIcon = ({
             className={`flex cursor-pointer w-full items-center`}
             style={{ justifyContent: justify }}
           >
-            <p className={`mr-4 ${txtColor}`}>{title}</p>
+            <p className={`mr-4`} style={{ color: txtColor }}>
+              {title}
+            </p>
             <div
-              className={` ${currentTheme} w-[20px] h-[20px] grid place-items-center 
+              className={` w-[20px] h-[20px] grid place-items-center 
                 rounded-full hover:scale-105 translate-all cursor-pointer`}
+              style={currentTheme}
             >
               <IoIosArrowForward />
             </div>

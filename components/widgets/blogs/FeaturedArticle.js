@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { sanityImage } from '../../../helper/imageUrl'
-import AppButton from '../../widgets/AppButton'
+import AppButton from '../../widgets/AppButton.jsx'
 
 export default function FeaturedArticle({ article }) {
   const imgObj = sanityImage(article.singleImage.singleImage)

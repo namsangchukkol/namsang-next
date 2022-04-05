@@ -6,12 +6,11 @@ import client from '../../sanityClient/client';
 import serializer from '../../helper/serializer';
 import Image from 'next/image';
 import { sanityImage } from '../../helper/imageUrl';
-import ImageList from '../../components/reusables/ImageList';
+import ImageList from '../../components/reusables/ImageList.jsx';
 
 export default function Blog({ pageContent }) {
   const { blogContent, metaData, singleImage, blogSlug, imageGallery } =
     pageContent;
-  console.log(pageContent);
   const featuredImage = sanityImage(singleImage.singleImage);
   return (
     <section className="lg:mx-indent mx-indent-xsm my-indent">

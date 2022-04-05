@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import Image from 'next/image';
-import AppButton from '../../components/widgets/AppButton';
+import AppButton from '../../components/widgets/AppButton.jsx';
 import FeaturedArticle from '../../components/widgets/blogs/FeaturedArticle';
 import AppSlider from '../../components/reusables/Slider';
 import { featuredArticles } from '../../settings/carousel.settings';

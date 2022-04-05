@@ -1,15 +1,15 @@
-import BlockContent from "@sanity/block-content-to-react";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import { sanityImage } from "../../helper/imageUrl";
-import AppButton from "../widgets/AppButton";
-import SimpleInput from "../reusables/SimpleInput";
-import ContactForm from './Form'
+import BlockContent from '@sanity/block-content-to-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import { sanityImage } from '../../helper/imageUrl';
+import AppButton from '../widgets/AppButton.jsx';
+import SimpleInput from './SimpleInput.jsx';
+import ContactForm from './Form.jsx';
 
 export default function Banner({ content, textColor }) {
-  const { banner } = content
-  const { bannerTemplate1, bannerTemplate2 } = banner?.banner
+  const { banner } = content;
+  const { bannerTemplate1, bannerTemplate2 } = banner?.banner;
   const {
     title,
     inputOne,
@@ -17,15 +17,18 @@ export default function Banner({ content, textColor }) {
     bannerPrice,
     bannerPriceTitle,
     ctaButton,
-    singleImage
-  } = banner
-  const image = sanityImage(singleImage.singleImage)
+    singleImage,
+  } = banner;
+  const image = sanityImage(singleImage.singleImage);
 
   function BannerTemplate() {
     switch (banner?.banner.template) {
-      case 'default': return <TextField content={bannerTemplate1} textColor={textColor} />;
-      case 'contactForm': return <Form content={bannerTemplate2} />
-      default: return <p>Nothing</p>
+      case 'default':
+        return <TextField content={bannerTemplate1} textColor={textColor} />;
+      case 'contactForm':
+        return <Form content={bannerTemplate2} />;
+      default:
+        return <p>Nothing</p>;
     }
   }
   return (
@@ -36,7 +39,7 @@ export default function Banner({ content, textColor }) {
       </section>
 
       {/* Input field */}
-      {banner?.withAddSec &&
+      {banner?.withAddSec && (
         <section
           className="lg:absolute md:absolute relative 
                 lg:bottom-0 lg:left-1/2 transform lg:-translate-x-1/2 lg:translate-y-1/2
@@ -57,46 +60,47 @@ export default function Banner({ content, textColor }) {
 
           <aside className="relative lg:w-2/5 md:w-2/5 w-[80vw] h-full border border-white lg:border-l md:border-l border-none lg:pl-5 md:pl-2 pl-0">
             <div className="hidden lg:grid absolute transform top-1/2 -translate-y-1/2 -left-2 my-auto mx-auto w-[1px] bg-white h-[120px]" />
-            <h4 >{bannerPriceTitle}</h4>
+            <h4>{bannerPriceTitle}</h4>
             <h2 className="text-6xl py-4">{bannerPrice}.-</h2>
-            <Link href='/tools' passHref>
-              <p
-                className="text-sm text-right cursor-pointer"
-                href="">
+            <Link href="/tools" passHref>
+              <p className="text-sm text-right cursor-pointer" href="">
                 {ctaButton.title} &gt;
               </p>
             </Link>
           </aside>
-        </section>}
+        </section>
+      )}
     </>
   );
 }
 
-function TextField({ content, textColor = "white" }) {
-  const { title, ctaButtonSlug } = content.content.ctaButton
+function TextField({ content, textColor = 'white' }) {
+  const { title, ctaButtonSlug } = content.content.ctaButton;
   return (
-    <aside className={`absolute top-1/2 transform lg:-translate-y-1/2 -translate-y-3/4 lg:ml-indent md:ml-indent lg:mr-0 ml-indent-xsm mr-indent-xsm text-${textColor}`}>
-      <h2 className="lg:text-6xl text-4xl font-medium mb-4">{content?.content.title}</h2>
+    <aside
+      className={`absolute top-1/2 transform lg:-translate-y-1/2 -translate-y-3/4 lg:ml-indent md:ml-indent lg:mr-0 ml-indent-xsm mr-indent-xsm text-${textColor}`}
+    >
+      <h2 className="lg:text-6xl text-4xl font-medium mb-4">
+        {content?.content.title}
+      </h2>
       <div className="lg:w-[450px] md:w-[450px] sm:w-[80vw]">
         <BlockContent blocks={content?.content.content} />
       </div>
       <br />
-      <AppButton
-        title={title}
-        to={`/${ctaButtonSlug}`}
-      />
+      <AppButton title={title} to={`/${ctaButtonSlug}`} />
     </aside>
-  )
+  );
 }
-
 
 function Form({ content }) {
   return (
-    <div className="absolute top-20 xl:top-1/2 xl:-translate-y-1/2 lg:top-28 left-1/2 lg:left-20 transform -translate-x-1/2 lg:-translate-x-0 bg-white w-[90vw] lg:w-[35vw] mx-auto
-      rounded-md lg:px-10 p-4 py-8 shadow-lg">
+    <div
+      className="absolute top-20 xl:top-1/2 xl:-translate-y-1/2 lg:top-28 left-1/2 lg:left-20 transform -translate-x-1/2 lg:-translate-x-0 bg-white w-[90vw] lg:w-[35vw] mx-auto
+      rounded-md lg:px-10 p-4 py-8 shadow-lg"
+    >
       <div className="relative">
         <ContactForm content={content} />
       </div>
     </div>
-  )
+  );
 }

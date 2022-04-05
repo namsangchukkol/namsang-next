@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useRecoilValue } from 'recoil';
 import { commonData } from '../../../recoil/atoms';
-import AppButton from '../../widgets/AppButton';
+import AppButton from '../../widgets/AppButton.jsx';
 import { windowWidth } from '../../../hooks/windowSize';
 import MobileNavbar from './MobileNavbar';
 import { useScroll } from '../../../hooks/animationHooks';

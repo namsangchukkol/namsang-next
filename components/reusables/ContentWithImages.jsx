@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { sanityImage } from '../../helper/imageUrl';
-import ImageList from './ImageList';
+import ImageList from './ImageList.jsx';
 
 export default function ContentWithImages({ data }) {
   const { featuredImage, productGallery, textFieldBtn } = data?.content;
@@ -30,7 +30,7 @@ export default function ContentWithImages({ data }) {
           <Button title={ctaButton?.title} button={ctaButton?.ctaButtonSlug} />
         </div>
       </aside>
-      <div className='px-indent-sm lg:px-indent'>
+      <div className="px-indent-sm lg:px-indent">
         <ImageList images={productGallery} basePath="products" />
       </div>
     </section>

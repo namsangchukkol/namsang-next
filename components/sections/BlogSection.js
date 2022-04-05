@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { sanityImage } from '../../helper/imageUrl';
-import AppButton from '../widgets/AppButton';
+import AppButton from '../widgets/AppButton.jsx';
 import style from '../../styles/BlogSection.module.css';
 
 export default function BlogSection({ data }) {

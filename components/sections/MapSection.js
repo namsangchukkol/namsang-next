@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil';
 import { MdPhoneInTalk } from 'react-icons/md';
 import { FaFax } from 'react-icons/fa';
 import { commonData } from '../../recoil/atoms';
-import AppButton from '../widgets/AppButton';
+import AppButton from '../widgets/AppButton.jsx';
 import { ContactIcon } from '../reusables/ContactIcon';
 
 export default function MapSection() {

@@ -6,7 +6,7 @@ import { sanityImage } from '../../helper/imageUrl'
 
 export default function ImageList({ images, basePath = '', simpleImage = false }) {
     return (
-        <section className=' flex flex-wrap justify-between items-center w-full my-14 '>
+        <section className='flex flex-wrap lg:justify-between justify-center items-center w-full my-14'>
             {images && images?.map((image, index) =>
                 <ImageCard
                     image={image}
@@ -44,8 +44,8 @@ function ImageCard({ image, slug, name, basePath, simpleImage }) {
 
     return (
         <Type>
-            <div className='flex flex-col justify-center items-center w-full lg:w-[300px] my-10 cursor-pointer hover:scale-[1.02] transition-all'>
-                <div className='relative w-[80vw] h-[300px] lg:w-[300px] lg:h-[300px] rounded-lg overflow-hidden'>
+            <div className='flex flex-col justify-center items-center w-[full] lg:w-[300px] my-10 cursor-pointer hover:scale-[1.02] transition-all'>
+                <div className='relative w-[80vw]  h-[300px] lg:w-[300px] lg:h-[300px] rounded-lg overflow-hidden'>
                     {imgObj &&
                         <Image {...imgObj}
                             layout='fill'
