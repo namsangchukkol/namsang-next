@@ -23,10 +23,12 @@ export default function MobileNavbar({ data }) {
             objectFit="contain"
           />
         ) : (
-          <div className="text-black z-50 ml-20 flex items-center justify-center">
-            <GrLanguage />
-            <p className="ml-2">TH</p>
-          </div>
+          <Link href="" locale="th" passHref>
+            <div className="text-black z-50 ml-20 flex items-center justify-center">
+              <GrLanguage size={20} />
+              <p className="ml-2">TH</p>
+            </div>
+          </Link>
         )}
       </div>
 
