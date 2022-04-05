@@ -11,11 +11,52 @@ import client from '../../sanityClient/client';
 import { useFilterer } from '../../helper/dataFilterer';
 import blogsListQuery from '../../sanity/queries/blogs';
 import { sanityImage } from '../../helper/imageUrl';
-import Link from 'next/link';
 
 export default function BlogsPage({ pageContent, blogsContent }) {
   const { metaData, body } = pageContent;
   const { slideList } = useFilterer(body, 'blogsSlideshow');
+  const [blogsLength, setBlogsLength] = useState(1);
+
+  const [gridConfig, setGrid] = useState({
+    container: {
+      grid_cols: 2,
+    },
+    card: {
+      grid_cols: 'grid-cols-[1fr_3fr]',
+      imazeSize: 'w-[150px] h-[140px]',
+    },
+  });
+
+  useEffect(() => {
+    setBlogsLength(blogsContent.length);
+  }, [blogsContent]);
+
+  useEffect(() => {
+    switch (blogsLength) {
+      case 1:
+        setGrid({
+          container: {
+            grid_cols: 1,
+          },
+          card: {
+            grid_cols: 'grid-cols-1',
+            imazeSize: 'w-full h-[310px]',
+          },
+        });
+        break;
+      default:
+        setGrid({
+          container: {
+            grid_cols: 2,
+          },
+          card: {
+            grid_cols: 'grid-cols-[1fr_3fr]',
+            imazeSize: 'w-[150px] h-[140px]',
+          },
+        });
+    }
+  }, [blogsContent]);
+
   return (
     <main className="lg:m-indent md:m-indent-sm  m-indent-xsm">
       <section className="grid grid-cols-[1fr_3fr] justify-center items-center">
@@ -34,30 +75,37 @@ export default function BlogsPage({ pageContent, blogsContent }) {
           บทความเด่น
         </h2>
         <div
-          className={`${style.blog_slider} grid gap-4 grid-cols-2 grid-rows-3`}
+          className={`${style.blog_slider} grid grid-cols-${gridConfig.container.grid_cols} gap-4`}
         >
           {blogsContent?.map((blog, index) => (
-            <Link href={`/blogs/${blog.blogSlug.current}`} key={index} passHref>
-              <aside
-                className="grid grid-cols-[1fr_2fr] hover:scale-[1.02] active:scale-[1]
-                  transition-all hover:border-b-2 border-red-main text-grey cursor-pointer"
+            <aside
+              key={index}
+              className={`grid col-span-1 first:grid-cols-1 first:row-span-3 row-span-${
+                3 / (blogsLength - 1)
+              } sm:grid-cols-${
+                blogsLength < 3 ? 1 : 2
+              } xl:grid-cols-[2fr_3fr] first:h-full h-[200px] 
+                                             sm:grid-col-${
+                                               gridConfig.card.grid_cols
+                                             } gap-3
+                                            `}
+            >
+              <div
+                className={`w-full ${style?.blog_image1} ${gridConfig.card.imazeSize1} 
+                                                 relative rounded-2xl grid place-items-center h-full w-full`}
               >
-                <div
-                  className={`${style.blog_image} w-[150px] h-[150px] relative rounded-2xl`}
-                >
-                  <Image
-                    layout="fill"
-                    {...sanityImage(blog?.singleImage?.singleImage)}
-                    title={blog?.singleImage?.title}
-                    alt={blog?.singleImage?.alt}
-                    className="rounded-3xl object-center"
-                  />
-                </div>
-                <p className="grid text-base text-left font-thin">
-                  {blog?.blogContent?.title}
-                </p>
-              </aside>
-            </Link>
+                <Image
+                  layout="fill"
+                  {...sanityImage(blog?.singleImage?.singleImage)}
+                  title={blog?.singleImage?.title}
+                  alt={blog?.singleImage?.alt}
+                  className="rounded-3xl object-center"
+                />
+              </div>
+              <p className="text-base text-left font-thin">
+                {blog?.blogContent?.shortDesc}
+              </p>
+            </aside>
           ))}
         </div>
       </aside>

@@ -26,10 +26,6 @@ export default function OtherBlogs({ toAvoid }) {
               slug={blog.slug.current}
             />
           ))}
-
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
       </AppSlider>
     </aside>
   );

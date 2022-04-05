@@ -18,11 +18,10 @@ export default function Navbar(context) {
       {windowWidth() > 1030 ? (
         <nav
           className={`fixed top-0 left-0 z-50 w-full 
-                       ${
-                         scrolled
-                           ? 'bg-white shadow-sm py-2'
-                           : 'bg-transparent py-4'
-                       } 
+                       ${scrolled
+              ? 'bg-white shadow-sm py-2'
+              : 'bg-transparent py-4'
+            } 
                         transition-all px-indent-super-xsm`}
         >
           <div className="flex justify-between items-center">
@@ -49,7 +48,7 @@ export default function Navbar(context) {
               ))}
             </div>
             <div>
-              <AppButton title="Contact Us" to="contact" />
+              <AppButton title="Contact Us" to="/contact" />
             </div>
           </div>
         </nav>

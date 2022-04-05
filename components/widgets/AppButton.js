@@ -11,7 +11,7 @@ export default function AppButton({
   return (
     <Link href={to} passHref>
       <section
-        className={`hover:scale-105 w-32 h-10 flex justify-center items-center rounded-lg cursor-pointer transition-all`}
+        className={`hover:scale-105 active:scale-[1] w-32 h-10 flex justify-center items-center rounded-lg cursor-pointer transition-all`}
         style={{ color: txtColor, backgroundColor: bgColor }}
       >
         {title}
