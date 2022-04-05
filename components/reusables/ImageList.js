@@ -6,17 +6,17 @@ import { sanityImage } from '../../helper/imageUrl'
 
 export default function ImageList({ images, basePath = '', simpleImage = false }) {
     return (
-        <section className='px-indent-sm lg:px-indent flex flex-wrap justify-between items-center w-full my-14 '>
-                {images && images?.map((image, index) =>
-                    <ImageCard
-                        image={image}
-                        slug={image.slug}
-                        key={index}
-                        name={image.name}
-                        basePath={basePath}
-                        simpleImage={simpleImage}
-                    />)}
-            </section>
+        <section className=' flex flex-wrap justify-between items-center w-full my-14 '>
+            {images && images?.map((image, index) =>
+                <ImageCard
+                    image={image}
+                    slug={image.slug}
+                    key={index}
+                    name={image.name}
+                    basePath={basePath}
+                    simpleImage={simpleImage}
+                />)}
+        </section>
     )
 }
 
@@ -37,9 +37,9 @@ function ImageCard({ image, slug, name, basePath, simpleImage }) {
                     {children}
                 </Link>
             )
-        } 
-            return <aside>{children}</aside>
-        
+        }
+        return <aside>{children}</aside>
+
     }
 
     return (
@@ -65,7 +65,7 @@ function ImageCard({ image, slug, name, basePath, simpleImage }) {
                     }
                 </div>
                 <br />
-                <h4 className='text-center'>{name || title}</h4>
+                {name && <h4 className='text-center'>{name || title}</h4>}
             </div>
         </Type>
     )

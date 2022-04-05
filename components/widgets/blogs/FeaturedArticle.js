@@ -17,7 +17,7 @@ export default function FeaturedArticle({ article }) {
       </div>
       <aside className='border border-red-main w-1/2 h-[280px] rounded-lg p-10 -ml-96 bg-white
         flex flex-col justify-around items-left z-50' >
-        <h4 className='text-red-main font-extrabold text-2xl'>{article.blogContent.shortDesc}</h4>
+        <h4 className='text-red-main font-extrabold text-2xl'>{article.blogContent.title}</h4>
         <AppButton title="Read More" to={`/blogs/${article.blogSlug.current}`} />
       </aside>
     </section>

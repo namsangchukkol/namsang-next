@@ -30,7 +30,9 @@ export default function ContentWithImages({ data }) {
           <Button title={ctaButton?.title} button={ctaButton?.ctaButtonSlug} />
         </div>
       </aside>
-      <ImageList images={productGallery} basePath="products" />
+      <div className='px-indent-sm lg:px-indent'>
+        <ImageList images={productGallery} basePath="products" />
+      </div>
     </section>
   );
 }
