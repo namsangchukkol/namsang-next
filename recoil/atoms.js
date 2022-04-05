@@ -2,7 +2,7 @@ import { atom } from "recoil";
 
 export const commonData = atom({
     key: 'commonData',
-    default: []
+    default: {}
 })
 
 

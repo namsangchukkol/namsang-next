@@ -12,7 +12,7 @@ export const DataGetter = () => {
     const { data, error } = useSWR(`/api/common/${lang}`, fetcher)
     const [_data, setData] = useRecoilState(commonData)
     useEffect(() => {
-        if (data === undefined) return setData([])
+        if (data === undefined) return setData({})
         setData(data)
     }, [data, lang])
     return null

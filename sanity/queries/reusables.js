@@ -1,5 +1,6 @@
 import contactForms from "./contactForm"
 import productsQuery from "./products"
+import siteSettings from "./siteSettings"
 
 const reusableQuery = `
 *[_type == 'reusableComponents'][0]{
@@ -10,12 +11,10 @@ const reusableQuery = `
         "slug": slug.current
         }
     },
-
     "contactForm": ${contactForms},
-
     "map": *[_type == 'mapSection'][0],
-    
     "otherProducts": ${productsQuery},
+    "siteSettings": ${siteSettings}
   }
 `
 

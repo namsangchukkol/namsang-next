@@ -12,7 +12,7 @@ export const imageUrl = (source) => {
 
 //sanity image 
 export const sanityImage = (image) => {
-  if (!image) return
+  if (!image) return undefined
   const si = useNextSanityImage(
     sanityClient,
     image
