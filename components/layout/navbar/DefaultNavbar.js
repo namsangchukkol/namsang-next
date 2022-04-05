@@ -53,7 +53,7 @@ export default function Navbar(context) {
           </div>
         </nav>
       ) : (
-        <MobileNavbar />
+        <MobileNavbar data={data} />
       )}
     </>
   );
