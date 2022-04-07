@@ -2,7 +2,7 @@ import { MdPhoneInTalk } from 'react-icons/md';
 import { FaFax } from 'react-icons/fa';
 import { useRecoilValue } from 'recoil';
 import MapSection from '../../components/sections/MapSection.js';
-import Banner from '../../components/reusables/banner.jsx';
+import Banner from '../../components/reusables/banner';
 import { commonData } from '../../recoil/atoms';
 import contactPage from '../../sanity/queries/contactPage';
 import client from '../../sanityClient/client';

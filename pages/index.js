@@ -1,4 +1,4 @@
-import Banner from '../components/reusables/banner.jsx'
+import Banner from '../components/reusables/banner'
 import BlogSection from '../components/sections/BlogSection'
 import MachineSection from '../components/sections/MachineSection.js'
 import MapSection from '../components/sections/MapSection.js'
