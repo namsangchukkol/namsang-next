@@ -39,8 +39,11 @@ export default function BlogsPage({ pageContent, blogsContent }) {
           {blogsContent?.map((blog, index) => (
             <Link href={`/blogs/${blog.blogSlug.current}`} key={index} passHref>
               <aside
-                className="grid grid-cols-[1fr_2fr] active:scale-[0.9]
-                  transition-all hover:shadow-md text-grey cursor-pointer rounded-lg hover:p-1"
+                className={`grid ${
+                  index !== 0 && 'grid-cols-[1fr_2fr]'
+                } active:scale-[0.9] transition-all duration-[240ms]  
+                hover:shadow-md text-grey hover:text-white cursor-pointer 
+                rounded-lg hover:bg-red-main`}
               >
                 <div
                   className={`${style.blog_image} w-[150px] h-[150px] relative rounded-2xl`}

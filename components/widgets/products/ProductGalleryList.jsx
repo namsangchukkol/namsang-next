@@ -44,7 +44,7 @@ function ImageCard({ image, slug, name }) {
   const imgObj = sanityImage(singleImage);
   return (
     <Link href={`/products/${slug}`} passHref>
-      <div className="flex flex-col justify-center items-center w-full lg:w-[300px] my-10 cursor-pointer hover:scale-[1.02] transition-all">
+      <div className="flex flex-col justify-center items-center w-full lg:w-[300px] my-10 cursor-pointer hover:scale-[1.02] transition-all duration-[200ms]">
         <div className="relative w-[80vw] h-[300px] lg:w-[350px] lg:h-[300px] rounded-lg overflow-hidden">
           {imgObj && (
             <Image
@@ -56,8 +56,7 @@ function ImageCard({ image, slug, name }) {
             />
           )}
           <div
-            className="absolute top-0 left-0 w-full h-full z-50 hover:bg-red-main opacity-[0.8]
-                                    grid place-items-center"
+            className="absolute top-0 left-0 w-full h-full z-10 hover:bg-red-main opacity-[0.8] grid place-items-center"
             onMouseEnter={() => setText(true)}
             onMouseLeave={() => setText(false)}
           >

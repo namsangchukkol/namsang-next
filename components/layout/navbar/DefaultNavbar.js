@@ -27,11 +27,14 @@ export default function Navbar(context) {
           <div className="flex justify-between items-center">
             <div className="relative w-44 h-[55px] px-2 mx-2">
               {data?.siteSettings && (
-                <Image
-                  src={siteSettings?.logo.singleImage.asset.url}
-                  layout="fill"
-                  objectFit="contain"
-                />
+                <Link href='/' passHref>
+                  <Image
+                    src={siteSettings?.logo.singleImage.asset.url}
+                    layout="fill"
+                    objectFit="contain"
+                    className='hover:cursor-pointer'
+                  />
+                </Link>
               )}
             </div>
             <div className="w-[80%] px-2 mx-2 lg:flex items-center justify-center">

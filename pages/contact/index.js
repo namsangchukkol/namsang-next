@@ -16,9 +16,8 @@ function ContactComponent({ content }) {
       <h2 className="text-title text-red-main">{content?.name}</h2>
       <p>{content?.description}</p>
       <aside>
-        <ContactIcon Icon={MdPhoneInTalk} number={content?.mobile} />
-        <ContactIcon Icon={FaFax} number={content?.fixedPhone} />
-
+        <ContactIcon Icon={MdPhoneInTalk} value={content?.mobile} />
+        <ContactIcon Icon={FaFax} value={content?.fixedPhone} />
       </aside>
     </section>
   );

@@ -1,6 +1,6 @@
 // for the first image
 .blog_slider aside:nth-child(1) {
-  @apply grid col-span-1 row-span-3 mb-10 lg:mb-0 md:mb-0;
+  @apply grid col-span-1 row-span-3 mb-10 lg:mb-0 md:mb-0 text-center w-full;
   .blog_image {
     @apply grid w-full col-span-full h-[330px] rounded-2xl;
   }
