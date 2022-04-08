@@ -55,8 +55,8 @@ export default function MapSection() {
         <br />
         {currentField ? (
           <aside className="grid grid-cols-2 mx-10">
-            <ContactIcon Icon={MdPhoneInTalk} number={currentField?.mobile} />
-            <ContactIcon Icon={FaFax} number={currentField?.fixedPhone} />
+            <ContactIcon Icon={MdPhoneInTalk} value={currentField?.mobile} />
+            <ContactIcon Icon={FaFax} value={currentField?.fixedPhone} />
           </aside>
         ) : (
           <AppButton

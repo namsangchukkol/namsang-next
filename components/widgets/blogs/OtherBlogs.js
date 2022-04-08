@@ -21,6 +21,7 @@ export default function OtherBlogs({ toAvoid }) {
         {data &&
           data?.map((blog, index) => (
             <BlogCard
+              key={index}
               title={blog.blogContent.title}
               image={blog.featuredImage}
               slug={blog.slug.current}

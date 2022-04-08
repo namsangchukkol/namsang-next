@@ -3,7 +3,10 @@ const homeQuery = `
   body[]{
     ...,
     _type == 'machineSection' => {...,machineImages[]->},  
-    _type == 'blogSection' => {...,blogSection[]->}  
+    _type == 'blogSection' => {...,blogSection[]->{
+      ...,
+      "blogContent": blogContent[language->.shortLanguage == $lang][0]
+    }},
   },
   metaData,
 }

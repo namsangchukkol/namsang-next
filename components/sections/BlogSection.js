@@ -55,37 +55,37 @@ function FeaturedImage({ textField, image }) {
     </section>
   );
 }
-function Blog({ content }) {
-  const { singleImage, textField } = content;
+const Blog = ({ content }) => {
+  const { singleImage, blogContent } = content;
   const imgObj = sanityImage(singleImage?.singleImage);
   return (
-    <section
-      className={`flex md:justify-around justify-between w-full ${style.blogcontainer}`}
-    >
-      <aside className="relative rounded-lg overflow-hidden">
-        {imgObj && (
-          <Image
-            {...imgObj}
-            width={200}
-            height={120}
-            objectFit="cover"
-            alt={singleImage?.alt}
-            title={singleImage?.title}
-            className="rounded-lg"
-          />
-        )}
-      </aside>
-      <aside className="pl-6 flex flex-col justify-between">
-        <BlockContent blocks={textField?.content} />
-        <Link href="/" passHref>
+    <Link href={`/blogs/${content.blogSlug.current}`} passHref>
+      <section
+        className={`flex md:justify-around justify-between w-full ${style.blogcontainer} cursor-pointer`}
+      >
+        <aside className="relative rounded-lg overflow-hidden">
+          {imgObj && (
+            <Image
+              {...imgObj}
+              width={200}
+              height={120}
+              objectFit="cover"
+              alt={singleImage?.alt}
+              title={singleImage?.title}
+              className="rounded-lg"
+            />
+          )}
+        </aside>
+        <aside className="pl-6 flex flex-col justify-between">
+          <p>{blogContent?.title}</p>
           <p
             className="text-sm text-right cursor-pointer hidden lg:grid"
             href="/"
           >
             Read More &gt;
           </p>
-        </Link>
-      </aside>
-    </section>
+        </aside>
+      </section>
+    </Link>
   );
-}
+};
