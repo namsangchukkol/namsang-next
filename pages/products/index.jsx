@@ -1,5 +1,5 @@
 import React from 'react';
-import Banner from '../../components/reusables/banner';
+import Banner from '../../components/reusables/Banner';
 import BenefitSection from '../../components/sections/BenefitSection';
 import ContactSection from '../../components/sections/ContactSection';
 import OurClient from '../../components/sections/OurClient';

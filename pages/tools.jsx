@@ -1,5 +1,5 @@
 import React from 'react';
-import Banner from '../components/reusables/banner';
+import Banner from '../components/reusables/Banner';
 import ImageList from '../components/reusables/ImageList.jsx';
 import CalculationSection from '../components/sections/CalculationSection';
 import ToolSection from '../components/sections/ToolSection';

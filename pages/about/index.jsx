@@ -1,6 +1,6 @@
 import aboutQuery from '../../sanity/queries/aboutPage';
 import client from '../../sanityClient/client';
-import Banner from '../../components/reusables/banner';
+import Banner from '../../components/reusables/Banner';
 import { useFilterer } from '../../helper/dataFilterer';
 import OurServices from '../../components/sections/OurServices';
 import OurHistory from '../../components/sections/OurHistory';
