@@ -11,8 +11,7 @@ export default function MobileNavbar({ data }) {
   return (
     <nav
       className={`lg:hidden w-screen fixed top-0 left-0 z-50 h-14 
-        ${
-          scrolled ? 'bg-white shadow-sm' : 'bg-transparent'
+        ${scrolled ? 'bg-white shadow-sm' : 'bg-transparent'
         } flex justify-between items-center px-5 transition-all`}
     >
       <div className="z-50 relative w-[40px] h-[40px] mx-2 flex items-center justify-center ">
@@ -23,7 +22,7 @@ export default function MobileNavbar({ data }) {
             objectFit="contain"
           />
         ) : (
-          <Link href="" locale="th" passHref>
+          <Link href="/" locale="th" passHref>
             <div className="text-black z-50 ml-20 flex items-center justify-center">
               <GrLanguage size={20} />
               <p className="ml-2">TH</p>
@@ -43,9 +42,8 @@ export default function MobileNavbar({ data }) {
         />
       </aside>
       <aside
-        className={`${
-          !isOpen && 'hidden'
-        } absolute top-0 left-0  w-screen bg-white pt-20 flex flex-col items-start`}
+        className={`${!isOpen && 'hidden'
+          } absolute top-0 left-0  w-screen bg-white pt-20 flex flex-col items-start`}
         style={{ height: isOpen ? '100vh' : 'auto' }}
       >
         <div className={`mx-auto`} onClick={() => setOpen(false)}>

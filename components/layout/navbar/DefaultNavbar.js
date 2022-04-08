@@ -7,6 +7,7 @@ import { windowWidth } from '../../../hooks/windowSize';
 import MobileNavbar from './MobileNavbar';
 import { useScroll } from '../../../hooks/animationHooks';
 import Image from 'next/image';
+import { GrLanguage } from 'react-icons/gr';
 
 export default function Navbar(context) {
   const router = useRouter();
@@ -24,7 +25,7 @@ export default function Navbar(context) {
             } 
                         transition-all px-indent-super-xsm`}
         >
-          <div className="flex justify-between items-center">
+          <div className="grid grid-cols-[1fr_3fr_1fr] justify-between items-center">
             <div className="relative w-44 h-[55px] px-2 mx-2">
               {data?.siteSettings && (
                 <Link href='/' passHref>
@@ -37,7 +38,7 @@ export default function Navbar(context) {
                 </Link>
               )}
             </div>
-            <div className="w-[80%] px-2 mx-2 lg:flex items-center justify-center">
+            <div className="w-full px-2 mx-2 lg:flex items-center justify-center">
               {header?.menuList.map((list, index) => (
                 <Link
                   href={`/${list?.slug === 'home' ? '' : list?.slug}`}
@@ -50,7 +51,13 @@ export default function Navbar(context) {
                 </Link>
               ))}
             </div>
-            <div>
+            <div className='flex'>
+              <Link href="/" locale="th" passHref>
+                <div className="text-black z-50 ml-20 flex items-center justify-center mr-8">
+                  <GrLanguage size={16} />
+                  <p className="ml-3 underline">TH</p>
+                </div>
+              </Link>
               <AppButton title="Contact Us" to="/contact" />
             </div>
           </div>
