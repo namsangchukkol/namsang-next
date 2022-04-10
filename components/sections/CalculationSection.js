@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { FiPlus } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
 import ButtonAndIcon from '../widgets/ButtonAndIcon';
@@ -25,63 +25,128 @@ const layers = [
   { type: 'heater', power: 14, unit: 'kw', quantity: 2 },
 ];
 
+// function ToolForm(props) {
+//   return props.data.map((layer, index) => (
+//     <aside
+//       id={`filter_${index}`}
+//       key={index}
+//       className="grid md:grid-cols-[0.2fr_2fr_3fr_1.2fr_1fr_0.2fr_0.2fr] gap-x-5 gap-y-2 my-2"
+//     >
+//       <div className="flex justify-center items-center">
+//         <p className="text-white text-xl">{index + 1}.</p>
+//       </div>
+//       <Select
+//         options={options}
+//         value={layer.type}
+//         index={index}
+//         onChange={e => {
+//           props.setSelection(e, index, 'type');
+//         }}
+//       />
+//       <SimpleInput
+//         templateType="flexible"
+//         bgColor="bg-[#D0D0D0]"
+//         inputPosition="right"
+//         defaultValue={layer.power}
+//         onChange={e => {
+//           props.updateInput(e.target.value, 'power', index);
+//         }}
+//       />
+//       <Select
+//         options={units}
+//         index={index}
+//         value={layer.unit}
+//         onChange={e => {
+//           props.setSelection(e, index, 'unit');
+//         }}
+//       />
+//       <SimpleInput
+//         templateType="flexible"
+//         bgColor="bg-[#D0D0D0]"
+//         inputPosition="right"
+//         defaultValue={layer.quantity}
+//         onChange={e => {
+//           props.updateInput(e.target.value, 'unit', index);
+//         }}
+//       />
+//       <div
+//         role="button"
+//         className="w-[38px] h-[38px] bg-white grid place-items-center rounded-lg"
+//         onClick={() => props.onClickAdd()}
+//       >
+//         <FiPlus />
+//       </div>
+//       <div
+//         role="button"
+//         className="w-[38px] h-[38px] bg-white grid text-red-main place-items-center rounded-lg"
+//         onClick={() => props.onClickDelete(index)}
+//       >
+//         <AiOutlineDelete />
+//       </div>
+//     </aside>
+//   ));
+// }
+
 function ToolForm(props) {
-  return props.data.map((layer, index) => (
+  return (
     <aside
-      id={`filter_${index}`}
-      key={index}
-      className="grid grid-cols-[2fr_3fr_1.2fr_1fr_0.2fr_0.2fr] gap-x-5 gap-y-2 my-2"
+      id={`filter_${props.index}`}
+      key={props.index}
+      className="grid md:grid-cols-[0.2fr_2fr_3fr_1.2fr_1fr_0.2fr_0.2fr] gap-x-5 gap-y-2 my-2"
     >
+      <div className="flex justify-center items-center">
+        <p className="text-white text-xl">{props.index + 1}.</p>
+      </div>
       <Select
         options={options}
-        value={layer.type}
-        index={index}
+        value={props.data?.type}
+        index={props.index}
         onChange={e => {
-          props.setSelection(e, index, 'type');
+          props.handleSetSelection(e, props.index, 'type');
         }}
       />
       <SimpleInput
         templateType="flexible"
         bgColor="bg-[#D0D0D0]"
         inputPosition="right"
-        defaultValue={layer.power}
+        defaultValue={props.data?.power}
         onChange={e => {
-          props.updateInput(e.target.value, 'power', index);
+          props.handleUpdateInput(e.target.value, 'power', props.index);
         }}
       />
       <Select
         options={units}
-        index={index}
-        value={layer.unit}
+        index={props.index}
+        value={props.data?.unit}
         onChange={e => {
-          props.setSelection(e, index, 'unit');
+          props.handleSetSelection(e, props.index, 'unit');
         }}
       />
       <SimpleInput
         templateType="flexible"
         bgColor="bg-[#D0D0D0]"
         inputPosition="right"
-        defaultValue={layer.quantity}
+        defaultValue={props.data?.quantity}
         onChange={e => {
-          props.updateInput(e.target.value, 'unit', index);
+          props.handleUpdateInput(e.target.value, 'quantity', props.index);
         }}
       />
       <div
         role="button"
         className="w-[38px] h-[38px] bg-white grid place-items-center rounded-lg"
-        onClick={() => props.onClickAdd()}
+        onClick={() => props.handleAdd()}
       >
         <FiPlus />
       </div>
       <div
         role="button"
         className="w-[38px] h-[38px] bg-white grid text-red-main place-items-center rounded-lg"
-        onClick={() => props.onClickDelete(index)}
+        onClick={() => props.handleDelete(props.index)}
       >
         <AiOutlineDelete />
       </div>
     </aside>
-  ));
+  );
 }
 
 function Select(props) {
@@ -124,6 +189,7 @@ function Result({ kva, content }) {
 function CalculationSection({ content }) {
   const [filtersLayers, setFiltersLayers] = useState(layers);
   const [kva, setKva] = useState(0);
+
   function onAddNew() {
     console.log('adding');
     setFiltersLayers(oldArray => [
@@ -170,23 +236,46 @@ function CalculationSection({ content }) {
     setKva(returnedKva);
   }
 
+  const Form = filtersLayers.map((row, index) => {
+    return (
+      <ToolForm
+        data={row}
+        index={index}
+        handleAdd={() => {
+          onAddNew();
+        }}
+        handleDelete={index => {
+          onDelete(index);
+        }}
+        handleSetSelection={(e, i, changeType) => {
+          setSelection(e, i, changeType);
+        }}
+        handleUpdateInput={(input, field, i) => {
+          updateInput(input, field, i);
+        }}
+      />
+    );
+  });
+
   return (
     <section
-      className="relative lg:px-super-indent px-indent-sm w-full py-10 bg-red-main"
+      className="relative lg:px-indent px-indent-xsm w-full py-10 bg-red-main"
       id="result_section"
     >
       <h2 className="text-white text-xl my-4">{content?.title}</h2>
-      <aside className="grid lg:grid-cols-[2fr_3fr_1.2fr_1fr_0.2fr_0.2fr] gap-x-5 gap-y-2">
+      <aside className="grid md:grid-cols-[2fr_3fr_1.2fr_1fr_0.2fr_0.2fr] gap-x-5 ">
         <p className="text-white">{content?.electronicType}</p>
         <p className="text-white">{content?.power}</p>
         <p className="text-white">{content?.unit}</p>
         <p className="text-white">{content?.quantity}</p>
-        <p className="text-red-main">Add</p>
-        <p className="text-red-main">Delete</p>
+        <p className="text-white">Add</p>
+        <p className="text-white">Delete</p>
       </aside>
 
       {/* Listing filters */}
-      <ToolForm
+      {JSON.stringify(filtersLayers)}
+      {Form}
+      {/* <ToolForm
         data={filtersLayers}
         onClickAdd={() => {
           onAddNew();
@@ -200,7 +289,7 @@ function CalculationSection({ content }) {
         updateInput={(input, field, i) => {
           updateInput(input, field, i);
         }}
-      />
+      /> */}
       <div className="h-[0.2px] bg-white w-full my-10" />
       <span
         onClick={() => {
