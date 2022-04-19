@@ -3,7 +3,7 @@ content-type: application/json
 
 {
     "data": [
-        { "type": "ac", "power": 10, "unit": "kw", "quantity": 1 },
+        { "type": "motor", "power": 10, "unit": "kw", "quantity": 1 },
         { "type": "heater", "power": 14, "unit": "kw", "quantity": 2 }
     ]
 }
