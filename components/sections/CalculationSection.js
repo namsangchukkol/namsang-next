@@ -173,7 +173,7 @@ function Option(props) {
 }
 
 function Result({ kva, content }) {
-  useEffect(async () => {}, [kva]);
+  useEffect(async () => { }, [kva]);
   // console.log(kva)
   if (!kva) return <></>;
   return (
@@ -273,7 +273,7 @@ function CalculationSection({ content }) {
       </aside>
 
       {/* Listing filters */}
-      {JSON.stringify(filtersLayers)}
+      {/* {JSON.stringify(filtersLayers)} */}
       {Form}
       {/* <ToolForm
         data={filtersLayers}
