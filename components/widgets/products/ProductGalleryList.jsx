@@ -28,9 +28,9 @@ export default function ProductGalleryList(props) {
           ))}
       </section>
       {more && (
-        <Link href="product" passHref>
+        <Link href="products" passHref>
           <p className="text-center cursor-pointer hover:underline">
-            {moreButton} {'>'}
+            {moreButton || 'more'} {'>'}
           </p>
         </Link>
       )}

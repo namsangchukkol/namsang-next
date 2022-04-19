@@ -24,11 +24,10 @@ export default function Navbar(context) {
       {windowWidth() > 1030 ? (
         <nav
           className={`fixed top-0 left-0 z-50 w-full 
-                       ${
-                         scrolled
-                           ? 'bg-white shadow-sm py-2'
-                           : 'bg-transparent py-4'
-                       } 
+                       ${scrolled
+              ? 'bg-white shadow-sm py-2'
+              : 'bg-transparent py-4'
+            } 
                         transition-all px-indent-super-xsm`}
         >
           <div className="grid grid-cols-[1fr_3fr_1fr] justify-between items-center">
@@ -58,7 +57,7 @@ export default function Navbar(context) {
               ))}
             </div>
             <div className="flex">
-              <Link href="/" locale={lang} passHref>
+              <Link href={router.asPath} locale={lang} passHref>
                 <div className="text-black z-50 ml-20 flex items-center justify-center mr-8 cursor-pointer">
                   <GrLanguage size={16} />
                   <p className="ml-3 underline">{toUpperCase(lang)}</p>

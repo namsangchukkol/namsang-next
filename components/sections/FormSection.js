@@ -7,10 +7,10 @@ export default function FormSection({ content, labelColor }) {
 
   return (
     <section className='px-indent-xsm lg:flex lg:px-indent py-10 bg-red-main rounded-lg'>
-      <h2 className="mb-4 text-title font-extrabold text-white lg:w-1/3 lg:pr-24">{formTitle.title}</h2>
+      <h2 className="mb-4 text-title font-extrabold text-white lg:w-1/3 lg:pr-24">{formTitle?.title}</h2>
       <aside className='lg:w-2/3'>
         <form className='formStyle'>
-          {formList.map((i, index) =>
+          {formList?.map((i, index) =>
             <FormInput key={index}
               id={i.contactType}
               type={i.contactType}
@@ -20,7 +20,7 @@ export default function FormSection({ content, labelColor }) {
         </form>
         <br />
         <aside className='flex justify-center items-center'>
-          <AppButton title={formSubmit.label} to='#' bgColor='white' txtColor='red-main' />
+          <AppButton title={formSubmit?.label} to='#' bgColor='white' txtColor='red-main' />
         </aside>
       </aside>
 

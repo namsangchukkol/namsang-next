@@ -8,11 +8,11 @@ export default function Form({ content }) {
   return (
     <section>
       <h2 className="text-title font-extrabold text-red-main mb-4">
-        {formTitle.title}
+        {formTitle?.title}
       </h2>
       <aside>
         <form className="formStyle">
-          {formList.map((i, index) => (
+          {formList?.map((i, index) => (
             <FormInput
               key={index}
               id={i.contactType}
@@ -23,7 +23,7 @@ export default function Form({ content }) {
           ))}
         </form>
         <aside className="mt-4">
-          <AppButton title={formSubmit.label} to="#" />
+          <AppButton title={formSubmit?.label} to="#" />
         </aside>
       </aside>
 
