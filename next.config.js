@@ -2,7 +2,7 @@ module.exports = {
   reactStrictMode: true,
   trailingSlash: true,
   i18n: {
-    locales: ['en'],
+    locales: ['en', 'th'],
     defaultLocale: 'en'
   },
   devIndicators: {

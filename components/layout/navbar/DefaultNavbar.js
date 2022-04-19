@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { commonData } from '../../../recoil/atoms';
 import AppButton from '../../widgets/AppButton.jsx';
@@ -8,32 +9,37 @@ import MobileNavbar from './MobileNavbar';
 import { useScroll } from '../../../hooks/animationHooks';
 import Image from 'next/image';
 import { GrLanguage } from 'react-icons/gr';
+import { toUpperCase } from '../../../helper/functions';
 
 export default function Navbar(context) {
   const router = useRouter();
+  const currentLang = router.locale;
+  const languages = router.locales;
   const scrolled = useScroll();
   const data = useRecoilValue(commonData);
   const { header, siteSettings } = data;
+  let lang = languages.filter(lang => lang !== currentLang)[0];
   return (
     <>
       {windowWidth() > 1030 ? (
         <nav
           className={`fixed top-0 left-0 z-50 w-full 
-                       ${scrolled
-              ? 'bg-white shadow-sm py-2'
-              : 'bg-transparent py-4'
-            } 
+                       ${
+                         scrolled
+                           ? 'bg-white shadow-sm py-2'
+                           : 'bg-transparent py-4'
+                       } 
                         transition-all px-indent-super-xsm`}
         >
           <div className="grid grid-cols-[1fr_3fr_1fr] justify-between items-center">
             <div className="relative w-44 h-[55px] px-2 mx-2">
               {data?.siteSettings && (
-                <Link href='/' passHref>
+                <Link href="/" passHref>
                   <Image
                     src={siteSettings?.logo.singleImage.asset.url}
                     layout="fill"
                     objectFit="contain"
-                    className='hover:cursor-pointer'
+                    className="hover:cursor-pointer"
                   />
                 </Link>
               )}
@@ -51,11 +57,11 @@ export default function Navbar(context) {
                 </Link>
               ))}
             </div>
-            <div className='flex'>
-              <Link href="/" locale="th" passHref>
-                <div className="text-black z-50 ml-20 flex items-center justify-center mr-8">
+            <div className="flex">
+              <Link href="/" locale={lang} passHref>
+                <div className="text-black z-50 ml-20 flex items-center justify-center mr-8 cursor-pointer">
                   <GrLanguage size={16} />
-                  <p className="ml-3 underline">TH</p>
+                  <p className="ml-3 underline">{toUpperCase(lang)}</p>
                 </div>
               </Link>
               <AppButton title="Contact Us" to="/contact" />
