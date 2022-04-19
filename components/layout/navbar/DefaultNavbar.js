@@ -11,14 +11,13 @@ import Image from 'next/image';
 import { GrLanguage } from 'react-icons/gr';
 import { toUpperCase } from '../../../helper/functions';
 
-export default function Navbar(context) {
+export default function Navbar() {
   const router = useRouter();
   const currentLang = router.locale;
-  const languages = router.locales;
   const scrolled = useScroll();
   const data = useRecoilValue(commonData);
   const { header, siteSettings } = data;
-  let lang = languages.filter(lang => lang !== currentLang)[0];
+  let lang = router.locales.filter(lang => lang !== currentLang)[0];
   return (
     <>
       {windowWidth() > 1030 ? (
@@ -44,17 +43,37 @@ export default function Navbar(context) {
               )}
             </div>
             <div className="w-full px-2 mx-2 lg:flex items-center justify-center">
-              {header?.menuList.map((list, index) => (
-                <Link
-                  href={`/${list?.slug === 'home' ? '' : list?.slug}`}
-                  passHref
-                  key={index}
-                >
-                  <p className="btn btn-ghost btn-sm rounded-btn text-grey normal-case mx-5">
-                    {list?.menuLabel}
-                  </p>
-                </Link>
+              {header?.menuList?.map((list, index) => (
+                <div class="dropdown dropdown-hover" key={index}>
+                  <Link
+                    href={`/${list?.slug === 'home' ? '' : list?.slug}`}
+                    passHref
+                    className="btn"
+                  >
+                    <p tabindex="0" className="btn btn-ghost btn-sm rounded-btn text-grey normal-case mx-5">
+                      {list?.menuLabel}
+                    </p>
+                  </Link>
+
+                  {list?.subMenuList &&
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-white rounded-box w-40">
+                      {list?.subMenuList.map((list, index) => (
+                        <li className="cursor-pointer" key={index}>
+                          <Link
+                            href={`/products/${list?.subMenu?.current}`}
+                            passHref
+                          >
+                            <p tabindex="0" className="text-grey text-sm mx-auto hover:bg-red-main w-full h-10 rounded-xl grid place-items-center hover:text-white">
+                              {list?.subMenuLabel}
+                            </p>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  }
+                </div>
               ))}
+
             </div>
             <div className="flex">
               <Link href={router.asPath} locale={lang} passHref>
