@@ -8,6 +8,8 @@ import contactPage from '../../sanity/queries/contactPage';
 import client from '../../sanityClient/client';
 import { useFilterer } from '../../helper/dataFilterer';
 import { ContactIcon } from '../../components/reusables/ContactIcon';
+import MetaData from '../../components/reusables/MetaData';
+
 
 
 function ContactComponent({ content }) {
@@ -31,6 +33,7 @@ export default function Contact({ pageContent }) {
   const locations = map?.locations;
   return (
     <section>
+      <MetaData {...metaData} />
       <Banner content={useFilterer(body, 'bannerTemplate')} />
       <MapSection />
       <aside className="px-indent grid grid-cols-4 gap-y-10 gap-x-5 py-20 bg-dirty-white">

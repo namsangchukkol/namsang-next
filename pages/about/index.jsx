@@ -7,12 +7,14 @@ import OurHistory from '../../components/sections/OurHistory';
 import ContactSection from '../../components/sections/ContactSection';
 import BenefitSection from '../../components/sections/BenefitSection';
 import ProductGalleryList from '../../components/widgets/products/ProductGalleryList';
+import MetaData from '../../components/reusables/MetaData';
 
 export default function About({ pageContent }) {
   const { metaData, body } = pageContent;
   const { title, moreButton } = useFilterer(body, 'otherProductsSection');
   return (
     <main className="bg-white">
+      <MetaData {...metaData} />
       <Banner content={useFilterer(body, 'bannerTemplate')} textColor="grey" />
       <OurServices content={useFilterer(body, 'mainServices')} />
       <OurHistory content={useFilterer(body, 'ourHistory')} />

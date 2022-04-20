@@ -8,12 +8,14 @@ import ProductGalleryList from '../../components/widgets/products/ProductGallery
 import { useFilterer } from '../../helper/dataFilterer';
 import productPage from '../../sanity/queries/productPage';
 import client from '../../sanityClient/client';
+import MetaData from '../../components/reusables/MetaData';
 
 export default function Product({ pageContent }) {
   const { body, metaData } = pageContent;
 
   return (
     <div>
+      <MetaData {...metaData} />
       <Banner content={useFilterer(body, 'bannerTemplate')} />
       <BenefitSection
         data={useFilterer(body, 'benefitSection')}

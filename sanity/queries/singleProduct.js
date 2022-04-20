@@ -6,7 +6,7 @@ const singleProduct = `
         productStatus->,
         productContent[languageOption->.shortLanguage == $lang][0],
         productHighlights[language->.shortLanguage == $lang][0],
-
+        metadata[language->.shortLanguage == $lang][0],
     }
 `
 export const productSlug = `

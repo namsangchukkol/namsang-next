@@ -7,12 +7,14 @@ import { sanityImage } from '../../helper/imageUrl';
 import singleProduct, { productSlug } from '../../sanity/queries/singleProduct';
 import client from '../../sanityClient/client';
 import { singleProductCarousel } from '../../settings/carousel.settings';
+import MetaData from '../../components/reusables/MetaData.js';
 
 export default function SingleProduct({ pageContent }) {
-  const { imageGallery } = pageContent;
+  const { imageGallery, metadata } = pageContent;
   const p = pageContent;
   return (
     <main className="mx-indent-sm lg:mx-indent text-grey">
+      <MetaData {...metadata} />
       <section className="flex flex-col lg:flex-row mt-indent">
         <aside className="lg:w-1/2">
           <aside className="lg:w-[80%]">

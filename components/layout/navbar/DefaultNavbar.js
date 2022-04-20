@@ -44,27 +44,27 @@ export default function Navbar() {
             </div>
             <div className="w-full px-2 mx-2 lg:flex items-center justify-center">
               {header?.menuList?.map((list, index) => (
-                <div class="dropdown dropdown-hover" key={index}>
+                <div className="dropdown dropdown-hover" key={index}>
                   <Link
                     href={`/${list?.slug === 'home' ? '' : list?.slug}`}
                     passHref
                     className="btn"
                   >
-                    <p tabindex="0" className="btn btn-ghost btn-sm rounded-btn text-grey normal-case mx-5">
+                    <p tabIndex="0" className="btn btn-ghost btn-sm rounded-btn text-grey normal-case mx-5">
                       {list?.menuLabel}
                     </p>
                   </Link>
 
                   {list?.subMenuList &&
-                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-white rounded-box w-40">
-                      {list?.subMenuList.map((list, index) => (
+                    <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-white rounded-box w-40">
+                      {list?.subMenuList.map((submenu, index) => (
                         <li className="cursor-pointer" key={index}>
                           <Link
-                            href={`/products/${list?.subMenu?.current}`}
+                            href={`/${list.slug}/${submenu?.subMenu?.current}`}
                             passHref
                           >
-                            <p tabindex="0" className="text-grey text-sm mx-auto hover:bg-red-main w-full h-10 rounded-xl grid place-items-center hover:text-white">
-                              {list?.subMenuLabel}
+                            <p tabIndex="0" className="text-grey text-sm mx-auto hover:bg-red-main w-full h-10 rounded-xl grid place-items-center hover:text-white">
+                              {submenu?.subMenuLabel}
                             </p>
                           </Link>
                         </li>
@@ -87,7 +87,7 @@ export default function Navbar() {
           </div>
         </nav>
       ) : (
-        <MobileNavbar data={data} />
+        <MobileNavbar data={data} lang={lang} />
       )}
     </>
   );

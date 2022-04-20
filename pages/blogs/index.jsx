@@ -12,12 +12,14 @@ import { useFilterer } from '../../helper/dataFilterer';
 import blogsListQuery from '../../sanity/queries/blogs';
 import { sanityImage } from '../../helper/imageUrl';
 import Link from 'next/link';
+import MetaData from '../../components/reusables/MetaData';
 
 export default function BlogsPage({ pageContent, blogsContent }) {
   const { metaData, body } = pageContent;
   const { slideList } = useFilterer(body, 'blogsSlideshow');
   return (
     <main className="lg:m-indent md:m-indent-sm  m-indent-xsm">
+      <MetaData {...metaData} />
       <section className="grid grid-cols-[1fr_3fr] justify-center items-center">
         <h2 className="text-3xl text-red-main">{pageContent.title}</h2>
         <SearchBox content={pageContent} />

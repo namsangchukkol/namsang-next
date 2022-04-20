@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../components/reusables/Banner';
 import ImageList from '../components/reusables/ImageList.jsx';
+import MetaData from '../components/reusables/MetaData';
 import CalculationSection from '../components/sections/CalculationSection';
 import ToolSection from '../components/sections/ToolSection';
 import { useFilterer } from '../helper/dataFilterer';
@@ -10,6 +11,7 @@ export default function Tools({ pageContent }) {
   const { metaData, body } = pageContent;
   return (
     <main>
+      <MetaData {...metaData} />
       <Banner content={useFilterer(body, 'bannerTemplate')} textColor="grey" />
       <ToolSection content={useFilterer(body, 'introToCalculation')} />
       <CalculationSection content={useFilterer(body, 'calculationSection')} />
