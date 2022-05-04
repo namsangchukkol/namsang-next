@@ -22,10 +22,8 @@ export default function Footer() {
     const toFind = lists.filter(list => list === currentPathname)[0];
     if (toFind === undefined) return true;
     return false;
+
   };
-
-  console.log(route)
-
   return (
     <>
       <section className="lg:mx-indent-super-xsm my-10">
@@ -77,7 +75,7 @@ export default function Footer() {
                   passHref
                   key={index}
                 >
-                  <p className=" text-grey normal-case w-[20px]">
+                  <p className=" text-grey normal-case w-[20px] hover:cursor-pointer hover:underline">
                     {list?.menuLabel}
                   </p>
                 </Link>
