@@ -50,7 +50,7 @@ export default function Navbar() {
                     passHref
                     className="btn"
                   >
-                    <p tabIndex="0" className="btn btn-ghost btn-sm rounded-btn text-grey normal-case mx-5">
+                    <p tabIndex="0" className="text-[15px] btn btn-ghost btn-sm rounded-btn text-grey normal-case mx-5">
                       {list?.menuLabel}
                     </p>
                   </Link>

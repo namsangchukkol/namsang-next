@@ -67,6 +67,7 @@ export default function Footer() {
           </section>
           <section>
             <h2>Menu</h2>
+            <br />
             <aside className="grid grid-cols-3 gap-1">
               {header?.menuList.map((list, index) => (
                 <Link
@@ -74,7 +75,7 @@ export default function Footer() {
                   passHref
                   key={index}
                 >
-                  <p className="btn btn-ghost btn-sm rounded-btn text-grey normal-case mx-5">
+                  <p className=" text-grey normal-case w-[20px]">
                     {list?.menuLabel}
                   </p>
                 </Link>

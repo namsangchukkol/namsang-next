@@ -35,10 +35,6 @@ export default function SingleProduct({ pageContent }) {
             <span className="font-bold text-xl ml-2">{p?.productName}</span>
           </p>
           <br />
-          <p>Product Code: {p?.productCode} </p>
-          <br />
-          <p>Status: {p?.productStatus.title}</p>
-          <br />
           <p>Description:</p>
           <br />
           <SanityBlockContent blocks={p?.productContent.productDescription} />

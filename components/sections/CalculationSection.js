@@ -21,71 +21,9 @@ const units = [
 ];
 
 const layers = [
-  { type: 'ac', power: 10, unit: 'kw', quantity: 1 },
-  { type: 'heater', power: 14, unit: 'kw', quantity: 2 },
+  { type: 'ac', power: 0, unit: 'kw', quantity: 0 },
+  { type: 'heater', power: 0, unit: 'kw', quantity: 0 },
 ];
-
-// function ToolForm(props) {
-//   return props.data.map((layer, index) => (
-//     <aside
-//       id={`filter_${index}`}
-//       key={index}
-//       className="grid md:grid-cols-[0.2fr_2fr_3fr_1.2fr_1fr_0.2fr_0.2fr] gap-x-5 gap-y-2 my-2"
-//     >
-//       <div className="flex justify-center items-center">
-//         <p className="text-white text-xl">{index + 1}.</p>
-//       </div>
-//       <Select
-//         options={options}
-//         value={layer.type}
-//         index={index}
-//         onChange={e => {
-//           props.setSelection(e, index, 'type');
-//         }}
-//       />
-//       <SimpleInput
-//         templateType="flexible"
-//         bgColor="bg-[#D0D0D0]"
-//         inputPosition="right"
-//         defaultValue={layer.power}
-//         onChange={e => {
-//           props.updateInput(e.target.value, 'power', index);
-//         }}
-//       />
-//       <Select
-//         options={units}
-//         index={index}
-//         value={layer.unit}
-//         onChange={e => {
-//           props.setSelection(e, index, 'unit');
-//         }}
-//       />
-//       <SimpleInput
-//         templateType="flexible"
-//         bgColor="bg-[#D0D0D0]"
-//         inputPosition="right"
-//         defaultValue={layer.quantity}
-//         onChange={e => {
-//           props.updateInput(e.target.value, 'unit', index);
-//         }}
-//       />
-//       <div
-//         role="button"
-//         className="w-[38px] h-[38px] bg-white grid place-items-center rounded-lg"
-//         onClick={() => props.onClickAdd()}
-//       >
-//         <FiPlus />
-//       </div>
-//       <div
-//         role="button"
-//         className="w-[38px] h-[38px] bg-white grid text-red-main place-items-center rounded-lg"
-//         onClick={() => props.onClickDelete(index)}
-//       >
-//         <AiOutlineDelete />
-//       </div>
-//     </aside>
-//   ));
-// }
 
 function ToolForm(props) {
   return (
@@ -179,8 +117,9 @@ function Result({ kva, content }) {
   return (
     <div className="text-white text-center">
       <h2 className="text-3xl">{content?.resultTitle}</h2>
+      <br />
       <div>
-        {content?.result}: {kva} KVA
+        <span className='text-[22px] font-[100]'>{content?.result}</span>: <span className='text-[35px]' >{kva} KVA</span>
       </div>
     </div>
   );
