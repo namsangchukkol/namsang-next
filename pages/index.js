@@ -11,6 +11,7 @@ import sanityClient from '../sanityClient/client'
 
 export default function Home({ pageContent }) {
   const { metaData, body } = pageContent
+  console.log(body)
   return (
     <div>
       <MetaData {...metaData} />

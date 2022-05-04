@@ -7,6 +7,7 @@ import serializer from '../../helper/serializer';
 import Image from 'next/image';
 import { sanityImage } from '../../helper/imageUrl';
 import ImageList from '../../components/reusables/ImageList.jsx';
+import MetaData from '../../components/reusables/MetaData';
 
 export default function Blog({ pageContent }) {
   const { blogContent, metaData, singleImage, blogSlug, imageGallery } =
@@ -14,6 +15,7 @@ export default function Blog({ pageContent }) {
   const featuredImage = sanityImage(singleImage.singleImage);
   return (
     <section className="lg:mx-indent mx-indent-xsm my-indent">
+      <MetaData {...metaData} />
       <p>Blog / {blogSlug?.current}</p>
       <h2 className="text-title text-red-main w-2/3 my-4">
         {blogContent.title}
@@ -47,7 +49,7 @@ export async function getStaticPaths() {
   }));
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 }
 
