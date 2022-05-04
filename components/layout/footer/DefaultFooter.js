@@ -24,6 +24,8 @@ export default function Footer() {
     return false;
   };
 
+  console.log(route)
+
   return (
     <>
       <section className="lg:mx-indent-super-xsm my-10">
