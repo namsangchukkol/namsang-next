@@ -25,14 +25,16 @@ export default function OurHistory({ content }) {
             </div>
           </div>
           <div className="relative w-full h-[400px] overflow-hidden shadow-sm">
-            <Image
-              {...sanityImage(history.singleImage.singleImage)}
-              layout="fill"
-              objectFit="cover"
-              title={history.singleImage.title}
-              alt={history.singleImage.alt}
-              className="rounded-lg"
-            />
+            {history.singleImage?.singleImage && (
+              <Image
+                {...sanityImage(history.singleImage.singleImage)}
+                layout="fill"
+                objectFit="cover"
+                title={history.singleImage.title}
+                alt={history.singleImage.alt}
+                className="rounded-lg"
+              />
+            )}
           </div>
         </aside>
       ))}
