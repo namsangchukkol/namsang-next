@@ -2,7 +2,7 @@ import Hamburger from 'hamburger-react';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useScroll } from '../../../hooks/animationHooks';
-import { GrLanguage } from 'react-icons/gr';
+import { MdOutlineLanguage } from 'react-icons/md';
 import Link from 'next/link';
 
 export default function MobileNavbar({ data }) {
@@ -15,7 +15,7 @@ export default function MobileNavbar({ data }) {
           scrolled ? 'bg-white shadow-sm' : 'bg-transparent'
         } flex justify-between items-center px-5 transition-all`}
     >
-      <div className="z-50 relative w-[40px] h-[40px] mx-2 flex items-center justify-center ">
+      <div className="z-50 relative w-full h-[40px] flex items-center justify-center ">
         {!isOpen && data?.siteSettings?.favicon ? (
           <Image
             src={data?.siteSettings?.favicon?.asset?.url}
@@ -24,8 +24,8 @@ export default function MobileNavbar({ data }) {
           />
         ) : (
           <Link href="" locale="th" passHref>
-            <div className="text-black z-50 ml-20 flex items-center justify-center">
-              <GrLanguage size={20} />
+            <div className="w-full text-grey z-50 flex items-center justify-center">
+              <MdOutlineLanguage size={25} color={'#be1e2d'} />
               <p className="ml-2">TH</p>
             </div>
           </Link>
@@ -55,9 +55,9 @@ export default function MobileNavbar({ data }) {
               passHref
               key={index}
             >
-              <p className="text-grey normal-case mx-5 py-4 text-xl cursor-pointer">
+              <a className="block text-grey normal-case mx-5 py-4 text-xl cursor-pointer text-center">
                 {list?.menuLabel}
-              </p>
+              </a>
             </Link>
           ))}
         </div>

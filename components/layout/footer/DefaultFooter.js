@@ -40,12 +40,14 @@ export default function Footer() {
             <div className="relative w-44 h-[55px]">
               {data?.siteSettings && (
                 <Link href="/" passHref>
-                  <Image
-                    src={siteSettings?.logo.singleImage.asset.url}
-                    layout="fill"
-                    objectFit="contain"
-                    className="hover:cursor-pointer"
-                  />
+                  <a>
+                    <Image
+                      src={siteSettings?.logo.singleImage.asset.url}
+                      layout="fill"
+                      objectFit="contain"
+                      className="hover:cursor-pointer"
+                    />
+                  </a>
                 </Link>
               )}
             </div>
@@ -66,26 +68,40 @@ export default function Footer() {
             </aside>
           </section>
           <section>
-            <h2>Menu</h2>
-            <aside className="grid grid-cols-3 gap-1">
+            <h2 className="text-center mb-4 text-xl font-medium">Menu</h2>
+            <aside className="grid grid-cols-1 gap-1">
               {header?.menuList.map((list, index) => (
                 <Link
                   href={`/${list?.slug === 'home' ? '' : list?.slug}`}
                   passHref
                   key={index}
                 >
-                  <p className="btn btn-ghost btn-sm rounded-btn text-grey normal-case mx-5">
+                  <a className="btn btn-ghost btn-sm rounded-btn text-grey normal-case">
                     {list?.menuLabel}
-                  </p>
+                  </a>
                 </Link>
               ))}
             </aside>
           </section>
-          <div className="flex items-start justify-between gap-2">
-            <AiOutlineSearch size={25} color="#BE1E2D" />
-            <SocialIcon type="line" />
-            <SocialIcon type="facebook" />
-            <SocialIcon type="twitter" />
+          <div className="flex items-start justify-start gap-5">
+            {/* <a>
+              <AiOutlineSearch size={25} color="#BE1E2D" />
+            </a> */}
+            <Link href={'#'} passHref>
+              <a>
+                <SocialIcon type="line" />
+              </a>
+            </Link>
+            <Link href={'#'} passHref>
+              <a>
+                <SocialIcon type="facebook" />
+              </a>
+            </Link>
+            <Link href={'#'} passHref>
+              <a>
+                <SocialIcon type="twitter" />
+              </a>
+            </Link>
           </div>
         </aside>
         <p className="text-center py-2 text-[0.7rem]">

@@ -9,7 +9,7 @@ import { useScroll } from '../../../hooks/animationHooks';
 import Image from 'next/image';
 
 export default function Navbar(context) {
-  const router = useRouter();
+  // const router = useRouter();
   const scrolled = useScroll();
   const data = useRecoilValue(commonData);
   const { header, siteSettings } = data;
@@ -18,22 +18,25 @@ export default function Navbar(context) {
       {windowWidth() > 1030 ? (
         <nav
           className={`fixed top-0 left-0 z-50 w-full 
-                       ${scrolled
-              ? 'bg-white shadow-sm py-2'
-              : 'bg-transparent py-4'
-            } 
+                       ${
+                         scrolled
+                           ? 'bg-white shadow-sm py-2'
+                           : 'bg-transparent py-4'
+                       } 
                         transition-all px-indent-super-xsm`}
         >
           <div className="flex justify-between items-center">
             <div className="relative w-44 h-[55px] px-2 mx-2">
               {data?.siteSettings && (
-                <Link href='/' passHref>
-                  <Image
-                    src={siteSettings?.logo.singleImage.asset.url}
-                    layout="fill"
-                    objectFit="contain"
-                    className='hover:cursor-pointer'
-                  />
+                <Link href="/" passHref>
+                  <a>
+                    <Image
+                      src={siteSettings?.logo.singleImage.asset.url}
+                      layout="fill"
+                      objectFit="contain"
+                      className="hover:cursor-pointer"
+                    />
+                  </a>
                 </Link>
               )}
             </div>
@@ -44,9 +47,9 @@ export default function Navbar(context) {
                   passHref
                   key={index}
                 >
-                  <p className="btn btn-ghost btn-sm rounded-btn text-grey normal-case mx-5">
+                  <a className="btn btn-ghost btn-sm rounded-btn text-grey normal-case mx-5">
                     {list?.menuLabel}
-                  </p>
+                  </a>
                 </Link>
               ))}
             </div>
