@@ -260,7 +260,7 @@ function CalculationSection({ content }) {
   return (
     <section
       className="relative lg:px-indent px-indent-xsm w-full py-10 bg-red-main"
-      id="result_section"
+      id="calculation"
     >
       <h2 className="text-white text-xl my-4">{content?.title}</h2>
       <aside className="grid md:grid-cols-[2fr_3fr_1.2fr_1fr_0.2fr_0.2fr] gap-x-5 ">

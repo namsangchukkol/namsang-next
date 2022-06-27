@@ -20,18 +20,40 @@ export default function MapSection() {
   return (
     <section className="relative bg-grey-light lg:h-[92vh] h-full w-screen">
       {/* Outside box */}
-      <aside className="z-50 w-[full] bg-white p-5 lg:hidden md:hidden grid">
+      <aside className="z-50 w-full text-center bg-white p-5 lg:hidden md:hidden grid">
         <h2 className="text-4xl my-5">{text?.title}</h2>
         <div className="text-start">
           {/* <BlockContent blocks={text?.content} /> */}
         </div>
         <br />
-        <AppButton
-          title={text?.ctaButton.title}
-          to={text?.ctaButton?.ctaButtonSlug}
-        />
+        <div className="flex justify-center">
+          <AppButton
+            title={text?.ctaButton.title}
+            to={text?.ctaButton?.ctaButtonSlug}
+          />
+        </div>
+
         <br />
       </aside>
+
+      {/* Locations */}
+      <aside className="md:absolute top-4 right-0 px-4 h-20 bg-white flex justify-around items-center rounded-tl-lg rounded-bl-lg">
+        <p className="mr-4">{map?.ourLocationTitle}</p>
+        {map?.locations?.map((location, index) => (
+          <button
+            key={index}
+            className={`px-2 mx-2 h-10 hover:bg-red-main text-white border-none rounded-xl`}
+            style={{
+              backgroundColor: currentIndex === index ? '#BE1E2D' : '#D0D0D0',
+            }}
+            onClick={() => onChoosingLocation(index, location)}
+          >
+            {location.contactDetail.name}
+          </button>
+        ))}
+      </aside>
+
+      {/* map */}
       <iframe
         title={currentField?.url || 'Google Map'}
         src={
@@ -64,21 +86,6 @@ export default function MapSection() {
             to={`/${text?.ctaButton?.ctaButtonSlug}`}
           />
         )}
-      </aside>
-
-      {/* Locations */}
-      <aside className="absolute top-4 right-0 px-4 h-20 bg-white flex justify-around items-center rounded-tl-lg rounded-bl-lg">
-        <p className="mr-4">{map?.ourLocationTitle}</p>
-        {map?.locations?.map((location, index) => (
-          <button
-            key={index}
-            className={`px-2 mx-2 h-10 hover:bg-red-main text-white border-none rounded-xl`}
-            style={{ backgroundColor: currentIndex === index ? '#BE1E2D' : '#D0D0D0' }}
-            onClick={() => onChoosingLocation(index, location)}
-          >
-            {location.contactDetail.name}
-          </button>
-        ))}
       </aside>
     </section>
   );
