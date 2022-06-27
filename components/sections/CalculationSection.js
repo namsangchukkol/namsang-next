@@ -239,6 +239,7 @@ function CalculationSection({ content }) {
   const Form = filtersLayers.map((row, index) => {
     return (
       <ToolForm
+        key={index}
         data={row}
         index={index}
         handleAdd={() => {

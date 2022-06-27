@@ -1,13 +1,26 @@
 import Hamburger from 'hamburger-react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useScroll } from '../../../hooks/animationHooks';
 import { MdOutlineLanguage } from 'react-icons/md';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function MobileNavbar({ data }) {
   const scrolled = useScroll();
   const [isOpen, setOpen] = useState(false);
+  const router = useRouter();
+  const [currentRoute, setCurrentRoute] = useState(router.basePath);
+  const [currentLocale, setCurrentLocale] = useState(router.locale);
+
+  useEffect(() => {
+    console.log('router changed');
+    console.log(`pathname: ${router.pathname}`);
+    setCurrentRoute(router.pathname);
+    setCurrentLocale(router.locale);
+    console.log(`locale: ${router.locale}`);
+  }, [router]);
+
   return (
     <nav
       className={`lg:hidden w-screen fixed top-0 left-0 z-50 h-14 
@@ -23,11 +36,15 @@ export default function MobileNavbar({ data }) {
             objectFit="contain"
           />
         ) : (
-          <Link href="" locale="th" passHref>
-            <div className="w-full text-grey z-50 flex items-center justify-center">
+          <Link
+            href={currentRoute || '/'}
+            locale={currentLocale === 'th' ? 'en' : 'th'}
+            passHref
+          >
+            <a className="w-full text-grey z-50 flex items-center justify-center">
               <MdOutlineLanguage size={25} color={'#be1e2d'} />
-              <p className="ml-2">TH</p>
-            </div>
+              <p className="ml-2">{currentLocale === 'th' ? 'EN' : 'TH'}</p>
+            </a>
           </Link>
         )}
       </div>

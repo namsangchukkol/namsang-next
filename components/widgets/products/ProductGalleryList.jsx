@@ -28,7 +28,7 @@ export default function ProductGalleryList(props) {
           ))}
       </section>
       {more && (
-        <Link href="product" passHref>
+        <Link href="/products/" passHref>
           <p className="text-center cursor-pointer hover:underline">
             {moreButton} {'>'}
           </p>
@@ -43,7 +43,7 @@ function ImageCard({ image, slug, name }) {
   const { singleImage, alt, title } = image;
   const imgObj = sanityImage(singleImage);
   return (
-    <Link href={`/products/${slug}`} passHref>
+    <Link href={`/products/${slug || ''}`} passHref>
       <div className="flex flex-col justify-center items-center w-full lg:w-[300px] my-10 cursor-pointer hover:scale-[1.02] transition-all duration-[200ms]">
         <div className="relative w-[80vw] h-[300px] lg:w-[350px] lg:h-[300px] rounded-lg overflow-hidden">
           {imgObj && (
