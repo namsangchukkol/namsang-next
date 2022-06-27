@@ -10,7 +10,7 @@ export default function BenefitSection({ data, withPaddingTop = false }) {
       className={`p-indent-sm pt-5 lg:px-indent-lg w-screen text-left lg:text-center`}
       style={{ paddingTop: withPaddingTop && '8rem' }}
     >
-      <h2 className="text-title text-red-main my-4 lg:w-1/2 lg:w-full">
+      <h2 className="text-title text-red-main my-4 lg:w-full">
         {textField.title}
       </h2>
       <SanityBlockContent blocks={textField.content} />
