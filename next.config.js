@@ -3,7 +3,7 @@ module.exports = {
   trailingSlash: true,
   i18n: {
     locales: ['en', 'th'],
-    defaultLocale: 'en',
+    defaultLocale: 'th',
   },
   devIndicators: {
     buildActivityPosition: 'bottom-right',

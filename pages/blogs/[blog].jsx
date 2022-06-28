@@ -15,7 +15,7 @@ export default function Blog({ pageContent }) {
   return (
     <section className="lg:mx-indent mx-indent-xsm my-indent">
       <p>Blog / {blogSlug?.current}</p>
-      <h2 className="text-title text-red-main w-2/3 my-4">
+      <h2 className="text-title text-red-main lg:w-2/3 my-4">
         {blogContent.title}
       </h2>
       <div className="relative w-full h-[400px] bg-gray-400 rounded-lg my-4">
@@ -38,13 +38,20 @@ export default function Blog({ pageContent }) {
   );
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }) {
   const slugs = await client.fetch(
     `*[_type == 'blogs']{"slug": blogSlug{current}}`,
   );
-  const paths = slugs.map(res => ({
-    params: { blog: res.slug.current },
-  }));
+
+  const paths = slugs
+    .map(blog => {
+      return locales.map(locale => ({
+        params: { blog: blog.slug.current },
+        locale,
+      }));
+    })
+    .flat();
+
   return {
     paths,
     fallback: false,
@@ -55,7 +62,16 @@ export async function getStaticProps(context) {
   const { params } = context;
   const slug = params.blog;
   const lang = context.locale;
+  console.log(`lang: ${lang}, slug: ${slug}`);
   const pageContent = await client.fetch(singleBlog, { lang, slug });
+  console.log(`page content: ${pageContent}`);
+
+  if (!pageContent) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       pageContent,
