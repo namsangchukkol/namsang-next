@@ -7,12 +7,28 @@ import { windowWidth } from '../../../hooks/windowSize';
 import MobileNavbar from './MobileNavbar';
 import { useScroll } from '../../../hooks/animationHooks';
 import Image from 'next/image';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useState, useEffect } from 'react';
 
 export default function Navbar(context) {
   // const router = useRouter();
   const scrolled = useScroll();
   const data = useRecoilValue(commonData);
   const { header, siteSettings } = data;
+
+  const router = useRouter();
+  const [currentRoute, setCurrentRoute] = useState(router.asPath);
+  const [currentLocale, setCurrentLocale] = useState(router.locale);
+
+  console.log(router);
+  useEffect(() => {
+    console.log('router changed');
+    console.log(`pathname: ${router.asPath}`);
+    setCurrentRoute(router.asPath);
+    setCurrentLocale(router.locale);
+    console.log(`locale: ${router.locale}`);
+  }, [router]);
+
   return (
     <>
       {windowWidth() > 1030 ? (
@@ -52,7 +68,12 @@ export default function Navbar(context) {
                   </a>
                 </Link>
               ))}
+              <LanguageSwitcher
+                currentRoute={currentRoute}
+                currentLocale={currentLocale}
+              />
             </div>
+
             <div>
               <AppButton title="Contact Us" to="/contact" />
             </div>
