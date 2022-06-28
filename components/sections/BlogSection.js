@@ -77,13 +77,10 @@ function Blog({ content }) {
       </aside>
       <aside className="pl-6 flex flex-col justify-between">
         <BlockContent blocks={textField?.content} />
-        <Link href="/" passHref>
-          <p
-            className="text-sm text-right cursor-pointer hidden lg:grid"
-            href="/"
-          >
+        <Link href={'/blog/' + content.blogSlug.current} passHref>
+          <a className="text-sm text-right cursor-pointer hidden lg:grid">
             Read More &gt;
-          </p>
+          </a>
         </Link>
       </aside>
     </section>

@@ -13,7 +13,6 @@ export default function MobileNavbar({ data }) {
   const [currentRoute, setCurrentRoute] = useState(router.asPath);
   const [currentLocale, setCurrentLocale] = useState(router.locale);
 
-  console.log(router);
   useEffect(() => {
     console.log('router changed');
     console.log(`pathname: ${router.asPath}`);
