@@ -12,5 +12,3 @@ export function windowWidth() {
     }, [])
     return width
 }
-
-

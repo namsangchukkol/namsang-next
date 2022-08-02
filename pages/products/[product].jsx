@@ -7,12 +7,16 @@ import { sanityImage } from '../../helper/imageUrl';
 import singleProduct, { productSlug } from '../../sanity/queries/singleProduct';
 import client from '../../sanityClient/client';
 import { singleProductCarousel } from '../../settings/carousel.settings';
+import BlockContent from '../../helper/blockContent';
+import SectionHead from '../../components/reusables/head.js';
 
 export default function SingleProduct({ pageContent }) {
-  const { imageGallery } = pageContent;
+  const { imageGallery, metadata } = pageContent;
   const p = pageContent;
+  console.log(metadata);
   return (
-    <main className="mx-indent-sm lg:mx-indent text-grey">
+    <main className="mx-indent-sm lg:mx-indent text-grey mt-20 lg:mt-0">
+      <SectionHead {...metadata} />
       <section className="flex flex-col lg:flex-row mt-indent">
         <aside className="lg:w-1/2">
           <aside className="lg:w-[80%]">
@@ -30,16 +34,13 @@ export default function SingleProduct({ pageContent }) {
           <br />
           <p>
             Product Name:
-            <span className="font-bold text-xl ml-2">{p?.productName}</span>
+            <span className="font-bold text-lg ml-2">{p?.productName}</span>
           </p>
-          <br />
-          <p>Product Code: {p?.productCode} </p>
-          <br />
+          {/* <p>Product Code: {p?.productCode} </p> */}
           <p>Status: {p?.productStatus.title}</p>
           <br />
           <p>Description:</p>
-          <br />
-          <SanityBlockContent blocks={p?.productContent.productDescription} />
+          <BlockContent blocks={p?.productContent.productDescription} />
           <br />
           <AppButton title="Contact Us" to="/contact" />
         </aside>
@@ -60,7 +61,7 @@ function Highlights({ content }) {
         </h2>
         <br />
         <aside className="lg:w-2/3">
-          <SanityBlockContent blocks={content?.content} />
+          <BlockContent blocks={content?.content} />
         </aside>
       </aside>
       <aside className="flex flex-col justify-center items-start my-10 lg:my-0">
@@ -95,7 +96,7 @@ export async function getStaticPaths() {
   }));
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 }
 

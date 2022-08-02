@@ -20,10 +20,7 @@ export default function Navbar(context) {
   const [currentRoute, setCurrentRoute] = useState(router.asPath);
   const [currentLocale, setCurrentLocale] = useState(router.locale);
 
-  console.log(router);
   useEffect(() => {
-    console.log('router changed');
-    console.log(`pathname: ${router.asPath}`);
     setCurrentRoute(router.asPath);
     setCurrentLocale(router.locale);
     console.log(`locale: ${router.locale}`);
@@ -34,12 +31,12 @@ export default function Navbar(context) {
       {windowWidth() > 1030 ? (
         <nav
           className={`fixed top-0 left-0 z-50 w-full 
-                       ${
-                         scrolled
-                           ? 'bg-white shadow-sm py-2'
-                           : 'bg-transparent py-4'
-                       } 
-                        transition-all px-indent-super-xsm`}
+                       ${scrolled
+              ? 'bg-white shadow-sm py-2'
+              : 'bg-white bg-opacity-[85%] py-4 text-white'
+            } 
+            transition-all px-indent-super-xsm hover:bg-white hover:py-3
+            `}
         >
           <div className="flex justify-between items-center">
             <div className="relative w-44 h-[55px] px-2 mx-2">

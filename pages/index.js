@@ -1,4 +1,5 @@
 import Banner from '../components/reusables/Banner'
+import SectionHead from '../components/reusables/head'
 import BlogSection from '../components/sections/BlogSection'
 import MachineSection from '../components/sections/MachineSection.js'
 import MapSection from '../components/sections/MapSection.js'
@@ -9,10 +10,12 @@ import homeQuery from '../sanity/queries/homePage'
 import sanityClient from '../sanityClient/client'
 
 export default function Home({ pageContent }) {
-  const { metadata, body } = pageContent
+  const { metaData, body } = pageContent
+  console.log(metaData)
   return (
     <div>
-      <Banner content={useFilterer(body, 'bannerTemplate')} />
+      <SectionHead {...metaData} />
+      <Banner content={useFilterer(body, 'bannerTemplate')} bgColor="bg-grey" />
       <ProductSection data={useFilterer(body, 'productSection')} />
       <MachineSection data={useFilterer(body, 'machineSection')} />
       <WorkSection data={useFilterer(body, 'workSection')} />

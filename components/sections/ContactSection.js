@@ -7,7 +7,7 @@ export default function ContactSection({ data, opacity = 1 }) {
   const { title, ctaButton } = data;
   const imgObj = sanityImage(data?.featuredImage?.singleImage);
   return (
-    <section className="relative w-full lg:w-[95vw] mx-auto h-[400px] my-14 rounded-none lg:rounded-lg overflow-hidden">
+    <section className="relative w-full lg:w-[95vw] mx-auto h-[450px] my-10 rounded-none lg:rounded-lg overflow-hidden">
       <aside className="hidden md:grid lg:grid">
         {data?.featuredImage && (
           <Image
@@ -23,7 +23,7 @@ export default function ContactSection({ data, opacity = 1 }) {
         className={`w-full h-full absolute top-0 left-0 bg-red-main opacity-100`}
         style={{ backgroundColor: color, opacity: opacity }}
       />
-      <aside className="absolute top-1/4 mx-indent-xsm z-10">
+      <aside className="absolute top-1/2 -translate-y-1/2 mx-indent-xsm z-10">
         <div className="text-white text-2xl lg:text-3xl w-full lg:w-2/3">
           <h2 className="text-4xl font-bold leading-relaxed">{title}</h2>
         </div>

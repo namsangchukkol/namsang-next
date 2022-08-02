@@ -7,7 +7,7 @@ import AppButton from '../widgets/AppButton.jsx';
 import SimpleInput from './SimpleInput.jsx';
 import ContactForm from './Form.jsx';
 
-export default function Banner({ content, textColor }) {
+export default function Banner({ content, textColor, bgColor = 'bg-grey' }) {
   const { banner } = content;
   const { bannerTemplate1, bannerTemplate2 } = banner?.banner;
   const {
@@ -24,7 +24,13 @@ export default function Banner({ content, textColor }) {
   function BannerTemplate() {
     switch (banner?.banner.template) {
       case 'default':
-        return <TextField content={bannerTemplate1} textColor={textColor} />;
+        return (
+          <TextField
+            content={bannerTemplate1}
+            textColor={textColor}
+            bgColor={bgColor}
+          />
+        );
       case 'contactForm':
         return <Form content={bannerTemplate2} />;
       default:
@@ -34,7 +40,7 @@ export default function Banner({ content, textColor }) {
   return (
     <>
       <section className="relative bg-gray-300 w-screen lg:h-screen h-[80vh] overflow-x-hidden">
-        <Image {...image} objectFit="cover" layout="fill" />
+        <Image {...image} objectFit="cover" layout="fill" className="blur-sm" />
         <BannerTemplate />
       </section>
 
@@ -74,11 +80,11 @@ export default function Banner({ content, textColor }) {
   );
 }
 
-function TextField({ content, textColor = 'white' }) {
+function TextField({ content, bgColor = 'bg-grey', textColor = 'white' }) {
   const { title, ctaButtonSlug } = content.content.ctaButton;
   return (
     <aside
-      className={`absolute top-1/2 transform lg:-translate-y-1/2 -translate-y-3/4 lg:ml-indent md:ml-indent lg:mr-0 ml-indent-xsm mr-indent-xsm text-${textColor}`}
+      className={`absolute top-1/2 transform lg:-translate-y-1/2 -translate-y-1/2 lg:ml-indent md:ml-indent lg:mr-0 ml-indent-xsm mr-indent-xsm text-${textColor} ${bgColor} bg-opacity-[25%] p-8 rounded-lg`}
     >
       <h2 className="lg:text-6xl text-4xl font-medium mb-4">
         {content?.content.title}

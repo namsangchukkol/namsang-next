@@ -13,7 +13,7 @@ export default function About({ pageContent }) {
   const { title, moreButton } = useFilterer(body, 'otherProductsSection');
   return (
     <main className="bg-white">
-      <Banner content={useFilterer(body, 'bannerTemplate')} textColor="grey" />
+      <Banner content={useFilterer(body, 'bannerTemplate')} textColor="white" />
       <OurServices content={useFilterer(body, 'mainServices')} />
       <OurHistory content={useFilterer(body, 'ourHistory')} />
       <ContactSection data={useFilterer(body, 'contactSection')} opacity={1} />

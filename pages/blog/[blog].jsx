@@ -7,13 +7,18 @@ import serializer from '../../helper/serializer';
 import Image from 'next/image';
 import { sanityImage } from '../../helper/imageUrl';
 import ImageList from '../../components/reusables/ImageList.jsx';
+import BlockContent from '../../helper/blockContent';
+import { serializers } from '@sanity/block-content-to-react/lib/targets/dom';
+import SectionHead from '../../components/reusables/head';
 
 export default function Blog({ pageContent }) {
   const { blogContent, metaData, singleImage, blogSlug, imageGallery } =
     pageContent;
   const featuredImage = sanityImage(singleImage.singleImage);
+  // console.log(pageContent);
   return (
     <section className="lg:mx-indent mx-indent-xsm my-indent">
+      <SectionHead {...metaData} />
       <p>Blog / {blogSlug?.current}</p>
       <h2 className="text-title text-red-main lg:w-2/3 my-4">
         {blogContent.title}
@@ -28,10 +33,11 @@ export default function Blog({ pageContent }) {
           alt={singleImage.alt}
         />
       </div>
-      <SanityBlockContent
+      {/* <SanityBlockContent
         blocks={blogContent.content}
         serializers={serializer}
-      />
+      /> */}
+      <BlockContent blocks={blogContent.content} />
       <ImageList images={imageGallery} simpleImage />
       <OtherBlogs toAvoid={blogSlug.current} />
     </section>
@@ -54,7 +60,7 @@ export async function getStaticPaths({ locales }) {
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 }
 

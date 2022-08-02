@@ -17,7 +17,7 @@ export default function ProductSection({ data }) {
     const imgUrl = sanityImage(image?.singleImage)
     return (
       <div className="relative m-2">
-        <Image {...imgUrl} layout="fixed" width={300} height={300} alt={image?.alt} />
+        <Image {...imgUrl} layout="fixed" width={300} height={300} alt={image?.alt} objectFit="cover" className="rounded-lg" />
       </div>
     )
   }
@@ -25,7 +25,7 @@ export default function ProductSection({ data }) {
   function ProductImageSlider({ image }) {
     const imgUrl = sanityImage(image.singleImage)
     return (
-      <div className="relative flex justify-center items-center m-auto w-[95vw] h-[50vh] rounded-lg overflow-hidden">
+      <div className="relative flex justify-center items-center mx-auto w-[80vw] h-[50vh] rounded-lg overflow-hidden">
         <Image {...imgUrl} layout="fill" objectFit="cover" alt={image.alt} />
       </div>
     )
@@ -36,7 +36,7 @@ export default function ProductSection({ data }) {
       {/* mobile screen */}
       <section className="">
         <h2 className="text-4xl my-5">{title}</h2>
-        <div className="lg:hidden md:hidden w-[95vw] mx-auto h-auto my-14">
+        <div className="lg:hidden md:hidden w-[80vw] mx-auto h-auto my-14">
           <AppSlider settings={defaultSettings}>
             {productsImages?.map(image => <ProductImageSlider image={image} key={image._key} />)}
           </AppSlider>

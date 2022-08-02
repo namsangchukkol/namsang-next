@@ -147,12 +147,19 @@ export const otherBlogSettings = {
         {
             breakpoint: 1200,
             settings: {
-                slidesToShow: 1,
+                slidesToShow: 3,
                 slidesToScroll: 1,
             }
         },
         {
             breakpoint: 900,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+            }
+        },
+        {
+            breakpoint: 400,
             settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,

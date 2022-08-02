@@ -4,6 +4,7 @@ const singleProduct = `
         productCategories->,
         productConditions[0]->{productCondition[languageOption->.shortLanguage == $lang]},
         productStatus->,
+        metadata[language->.shortLanguage == $lang][0],
         productContent[languageOption->.shortLanguage == $lang][0],
         productHighlights[language->.shortLanguage == $lang][0],
 

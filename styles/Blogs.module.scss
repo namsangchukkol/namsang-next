@@ -4,4 +4,7 @@
   .blog_image {
     @apply grid w-full col-span-full h-[330px] rounded-2xl;
   }
+  .blog_title {
+    margin-top: -50px;
+  }
 }

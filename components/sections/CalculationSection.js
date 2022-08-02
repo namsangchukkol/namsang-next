@@ -97,6 +97,7 @@ function ToolForm(props) {
       <div className="flex justify-center items-center">
         <p className="text-white text-xl">{props.index + 1}.</p>
       </div>
+      <p className="lg:hidden md:hidden flex text-white">{props.content?.electronicType}</p>
       <Select
         options={options}
         value={props.data?.type}
@@ -105,6 +106,7 @@ function ToolForm(props) {
           props.handleSetSelection(e, props.index, 'type');
         }}
       />
+      <p className="lg:hidden md:hidden flex text-white">{props.content?.power}</p>
       <SimpleInput
         templateType="flexible"
         bgColor="bg-[#D0D0D0]"
@@ -114,6 +116,7 @@ function ToolForm(props) {
           props.handleUpdateInput(e.target.value, 'power', props.index);
         }}
       />
+      <p className="lg:hidden md:hidden flex text-white">{props.content?.unit}</p>
       <Select
         options={units}
         index={props.index}
@@ -122,6 +125,7 @@ function ToolForm(props) {
           props.handleSetSelection(e, props.index, 'unit');
         }}
       />
+      <p className="lg:hidden md:hidden flex text-white">{props.content?.quantity}</p>
       <SimpleInput
         templateType="flexible"
         bgColor="bg-[#D0D0D0]"
@@ -133,18 +137,36 @@ function ToolForm(props) {
       />
       <div
         role="button"
-        className="w-[38px] h-[38px] bg-white grid place-items-center rounded-lg"
+        className="w-[38px] h-[38px] bg-white lg:grid md:grid place-items-center rounded-lg hidden"
         onClick={() => props.handleAdd()}
       >
         <FiPlus />
       </div>
       <div
         role="button"
-        className="w-[38px] h-[38px] bg-white grid text-red-main place-items-center rounded-lg"
+        className="w-[38px] h-[38px] bg-white lg:grid md:grid hidden text-red-main place-items-center rounded-lg"
         onClick={() => props.handleDelete(props.index)}
       >
         <AiOutlineDelete />
       </div>
+
+      {/* mobile delete and add button */}
+      <aside className='w-full flex justify-center items-center lg:hidden md:hidden'>
+        <div
+          role="button"
+          className="w-[38px] h-[38px] bg-white grid place-items-center rounded-lg m-1"
+          onClick={() => props.handleAdd()}
+        >
+          <FiPlus />
+        </div>
+        <div
+          role="button"
+          className="w-[38px] h-[38px] bg-white grid text-red-main place-items-center rounded-lg m-1"
+          onClick={() => props.handleDelete(props.index)}
+        >
+          <AiOutlineDelete />
+        </div>
+      </aside>
     </aside>
   );
 }
@@ -173,7 +195,7 @@ function Option(props) {
 }
 
 function Result({ kva, content }) {
-  useEffect(async () => {}, [kva]);
+  useEffect(async () => { }, [kva]);
   // console.log(kva)
   if (!kva) return <></>;
   return (
@@ -236,12 +258,14 @@ function CalculationSection({ content }) {
     setKva(returnedKva);
   }
 
-  const Form = filtersLayers.map((row, index) => {
+
+  const Form = ({ content }) => filtersLayers.map((row, index) => {
     return (
       <ToolForm
         key={index}
         data={row}
         index={index}
+        content={content}
         handleAdd={() => {
           onAddNew();
         }}
@@ -264,7 +288,7 @@ function CalculationSection({ content }) {
       id="calculation"
     >
       <h2 className="text-white text-xl my-4">{content?.title}</h2>
-      <aside className="grid md:grid-cols-[2fr_3fr_1.2fr_1fr_0.2fr_0.2fr] gap-x-5 ">
+      <aside className="hidden md:grid lg:grid md:grid-cols-[2fr_3fr_1.2fr_1fr_0.2fr_0.2fr] gap-x-5 ">
         <p className="text-white">{content?.electronicType}</p>
         <p className="text-white">{content?.power}</p>
         <p className="text-white">{content?.unit}</p>
@@ -274,8 +298,9 @@ function CalculationSection({ content }) {
       </aside>
 
       {/* Listing filters */}
-      {JSON.stringify(filtersLayers)}
-      {Form}
+      {/* {JSON.stringify(filtersLayers)} */}
+      {/* {Form} */}
+      <Form content={content} />
       {/* <ToolForm
         data={filtersLayers}
         onClickAdd={() => {

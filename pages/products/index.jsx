@@ -8,24 +8,38 @@ import ProductGalleryList from '../../components/widgets/products/ProductGallery
 import { useFilterer } from '../../helper/dataFilterer';
 import productPage from '../../sanity/queries/productPage';
 import client from '../../sanityClient/client';
+import SectionHead from '../../components/reusables/head';
 
 export default function Product({ pageContent }) {
   const { body, metaData } = pageContent;
 
+  const MappingContent = () => {
+    return body?.map((section, index) => {
+      const type = section._type;
+      if (!type) return <></>;
+      switch (type) {
+        case 'bannerTemplate':
+          return <Banner content={section} />;
+        case 'benefitSection':
+          return <BenefitSection data={section} withPaddingTop />;
+        case 'generatorShowcase':
+          return <ContentWithImages data={section} />;
+        case 'usedMachineShowcase':
+          return <ContentWithImages data={section} />;
+        case 'contactSection':
+          return <ContactSection data={section} opacity={0.5} />;
+        case 'ourClient':
+          return <OurClient data={section} />;
+        default:
+          return;
+      }
+    });
+  };
+
   return (
     <div>
-      <Banner content={useFilterer(body, 'bannerTemplate')} />
-      <BenefitSection
-        data={useFilterer(body, 'benefitSection')}
-        withPaddingTop
-      />
-      <ContentWithImages data={useFilterer(body, 'generatorShowcase')} />
-      <ContactSection
-        data={useFilterer(body, 'contactSection')}
-        opacity={0.5}
-      />
-      <ContentWithImages data={useFilterer(body, 'usedMachineShowcase')} />
-      <OurClient data={useFilterer(body, 'ourClient')} />
+      <SectionHead {...metaData} />
+      <MappingContent />
       <ProductGalleryList title="สินค้าอื่นๆ" />
     </div>
   );

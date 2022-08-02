@@ -17,6 +17,8 @@ export default function MapSection() {
     setField(location.contactDetail);
     setIndex(index);
   }
+
+  console.log(currentField)
   return (
     <section className="relative bg-grey-light lg:h-[92vh] h-full w-screen">
       {/* Outside box */}
@@ -37,20 +39,22 @@ export default function MapSection() {
       </aside>
 
       {/* Locations */}
-      <aside className="md:absolute top-4 right-0 px-4 h-20 bg-white flex justify-around items-center rounded-tl-lg rounded-bl-lg">
+      <aside className="md:absolute top-4 right-0 px-4 h-auto lg:w-[75vw] w-[100vw] bg-white flex justify-around items-center rounded-tl-lg rounded-bl-lg">
         <p className="mr-4">{map?.ourLocationTitle}</p>
-        {map?.locations?.map((location, index) => (
-          <button
-            key={index}
-            className={`px-2 mx-2 h-10 hover:bg-red-main text-white border-none rounded-xl`}
-            style={{
-              backgroundColor: currentIndex === index ? '#BE1E2D' : '#D0D0D0',
-            }}
-            onClick={() => onChoosingLocation(index, location)}
-          >
-            {location.contactDetail.name}
-          </button>
-        ))}
+        <div className="overflow-x-scroll flex flex-auto justify-start ">
+          {map?.locations?.map((location, index) => (
+            <div
+              key={index}
+              className={`m-2 p-2 lg:p-2 md:w-auto sm:w-[20rem] hover:bg-red-main text-white border-none rounded-xl cursor-pointer text-left flex justify-center items-start`}
+              style={{
+                backgroundColor: currentIndex === index ? '#BE1E2D' : '#D0D0D0',
+              }}
+              onClick={() => onChoosingLocation(index, location)}
+            >
+              {location.contactDetail.name}
+            </div>
+          ))}
+        </div>
       </aside>
 
       {/* map */}
@@ -77,8 +81,8 @@ export default function MapSection() {
         <br />
         {currentField ? (
           <aside className="grid grid-cols-2 mx-10">
-            <ContactIcon Icon={MdPhoneInTalk} number={currentField?.mobile} />
-            <ContactIcon Icon={FaFax} number={currentField?.fixedPhone} />
+            <ContactIcon Icon={MdPhoneInTalk} number={`${currentField.mobile}`} type='tel' />
+            <ContactIcon Icon={FaFax} number={`${currentField.fixedPhone}`} type='tel' />
           </aside>
         ) : (
           <AppButton

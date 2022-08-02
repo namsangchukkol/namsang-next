@@ -15,17 +15,14 @@ export default function MobileNavbar({ data }) {
 
   useEffect(() => {
     console.log('router changed');
-    console.log(`pathname: ${router.asPath}`);
     setCurrentRoute(router.asPath);
     setCurrentLocale(router.locale);
-    console.log(`locale: ${router.locale}`);
   }, [router]);
 
   return (
     <nav
       className={`lg:hidden w-screen fixed top-0 left-0 z-50 h-14 
-        ${
-          scrolled ? 'bg-white shadow-sm' : 'bg-transparent'
+        ${scrolled ? 'bg-white shadow-sm' : 'bg-transparent'
         } flex justify-between items-center px-5 transition-all`}
     >
       <div className="z-50 relative w-full h-[40px] flex items-center justify-center ">
@@ -49,14 +46,13 @@ export default function MobileNavbar({ data }) {
           toggled={isOpen}
           toggle={setOpen}
           size={30}
-          color={scrolled ? 'red' : '#3B3B3B'}
+          color={scrolled ? '#AD0720' : 'white' && isOpen ? '#AD0720' : '#AD0720'}
           duration={0.2}
         />
       </aside>
       <aside
-        className={`${
-          !isOpen && 'hidden'
-        } absolute top-0 left-0  w-screen bg-white pt-20 flex flex-col items-start`}
+        className={`${!isOpen && 'hidden'
+          } absolute top-0 left-0  w-screen bg-white pt-20 flex flex-col items-start`}
         style={{ height: isOpen ? '100vh' : 'auto' }}
       >
         <div className={`mx-auto`} onClick={() => setOpen(false)}>

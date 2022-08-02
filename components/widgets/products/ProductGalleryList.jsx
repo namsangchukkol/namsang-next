@@ -9,6 +9,7 @@ export default function ProductGalleryList(props) {
   const { title, more = true, moreButton } = props;
   const data = useRecoilValue(commonData);
   const products = data.otherProducts;
+  console.log(moreButton);
   return (
     <>
       {title && (
@@ -30,7 +31,7 @@ export default function ProductGalleryList(props) {
       {more && (
         <Link href="/products/" passHref>
           <p className="text-center cursor-pointer hover:underline">
-            {moreButton} {'>'}
+            {moreButton || 'See more'} {'>'}
           </p>
         </Link>
       )}

@@ -1,4 +1,48 @@
+import Image from 'next/image';
+import { useState } from 'react';
+import { imageUrl } from './imageUrl';
+
 const BlockContent = require('@sanity/block-content-to-react');
+
+
+const NextImage = ({ node: { asset } }) => {
+  const [hidden, setHidden] = useState(false)
+  return (
+    <>
+      <div className='relative my-4 w-full h-full'>
+        <Image
+          src={imageUrl(asset).url()}
+          width={1280}
+          height={600}
+          objectFit="contain"
+          alt={asset.alt || ''}
+          onClick={() => setHidden(!hidden)}
+        />
+      </div>
+      <div className={`absolute ${!hidden && 'hidden'} flex justify-center items-center bg-black left-0 top-20 w-[100vw] h-[100vh] z-50`}>
+        <div className='relative w-[100vw] h-[100vh] top-0 left-0 -scale-50'>
+          <img
+            src={imageUrl(asset).url()}
+            // width={1280}
+            // height={600}
+            // objectFit="cover"
+            alignContent="center"
+
+            // layout='fill'
+            alt={asset.alt || ''}
+            className="blur-md"
+            onClick={() => setHidden(!hidden)}
+            style={{
+              alignContent: 'center',
+              objectPosition: 'center'
+            }}
+          />
+        </div>
+      </div>
+    </>
+  )
+}
+
 
 const serializers = {
   types: {
@@ -7,14 +51,14 @@ const serializers = {
 
       if (style === 'normal') {
         return (
-          <p className={`lg:text-base leading-relaxed py-4 font-extralight`}>
+          <p className={`lg:text-base font-extralight`}>
             {props.children}
           </p>
         );
       }
       if (style === 'h1') {
         return (
-          <h1 className="text-3xl text-black-light leading-normal py-1 font-extralight">
+          <h1 className="text-3xl text-black-light leading-loose py-3 font-extralight">
             {props.children}
           </h1>
         );
@@ -28,9 +72,16 @@ const serializers = {
       }
       if (style === 'h3') {
         return (
-          <h3 className="text-xl text-red leading-[3] font-bold">
+          <h3 className="text-xl text-red-main leading-[3px] font-bold">
             {props.children}
           </h3>
+        );
+      }
+      if (style === 'h4') {
+        return (
+          <h4 className="text-lg text-red-main leading-[2px] font-bold py-2">
+            {props.children}
+          </h4>
         );
       }
 
@@ -42,6 +93,8 @@ const serializers = {
         <code className="leading-normal">{props.node.code}</code>
       </pre>
     ),
+    image: NextImage,
+
   },
   list: props =>
     props.type === 'bullet' ? (
@@ -70,4 +123,6 @@ const serializers = {
   container: ({ children }) => children,
 };
 
+
 export default serializers;
+

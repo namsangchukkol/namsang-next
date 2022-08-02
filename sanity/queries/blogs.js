@@ -4,7 +4,9 @@ const blogs = `
         blogContent[language->.shortLanguage == $lang][0],
         blogSlug,
         singleImage
-    }[$min...$max]
+    }
 `
 
 export default blogs
+
+// [$min...$max]

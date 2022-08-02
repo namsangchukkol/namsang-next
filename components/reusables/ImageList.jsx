@@ -49,12 +49,12 @@ function ImageCard({ image, slug, name, basePath, simpleImage }) {
   return (
     <Type>
       <div className="flex flex-col justify-center items-center w-[full] lg:w-[300px] my-10 cursor-pointer hover:scale-[1.02] transition-all duration-[200ms]">
-        <div className="relative w-[80vw]  h-[300px] lg:w-[300px] lg:h-[300px] rounded-lg overflow-hidden">
+        <div className="relative w-[80vw]  h-[300px] lg:w-[300px] lg:h-[300px] rounded-lg overflow-hidden shadow-md">
           {imgObj && (
             <Image
               {...imgObj}
               layout="fill"
-              objectFit="cover"
+              objectFit="contain"
               alt={alt}
               title={title}
             />

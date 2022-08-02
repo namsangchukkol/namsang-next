@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from '../components/reusables/Banner';
+import SectionHead from '../components/reusables/head';
 import ImageList from '../components/reusables/ImageList.jsx';
 import CalculationSection from '../components/sections/CalculationSection';
 import ToolSection from '../components/sections/ToolSection';
@@ -10,7 +11,12 @@ export default function Tools({ pageContent }) {
   const { metaData, body } = pageContent;
   return (
     <main>
-      <Banner content={useFilterer(body, 'bannerTemplate')} textColor="grey" />
+      <SectionHead {...metaData} />
+      <Banner
+        content={useFilterer(body, 'bannerTemplate')}
+        textColor="grey"
+        bgColor="white"
+      />
       <ToolSection content={useFilterer(body, 'introToCalculation')} />
       <CalculationSection content={useFilterer(body, 'calculationSection')} />
       <div className="lg:px-indent px-indent-xsm">

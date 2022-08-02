@@ -9,12 +9,16 @@ import AppSlider from "../reusables/Slider";
 export default function WorkSection({ data }) {
   const { textFieldBtn, bgImage, imageGallery } = data;
   const { title, content, ctaButton } = textFieldBtn
-
+  console.log(data)
+  const imgObj = sanityImage(bgImage.singleImage)
   return (
     <main className="relative bg-grey-light h-screen flex items-center justify-start text-grey px-indent">
-      <section className="lg:flex hidden bg-grey-light w-full h-[60vh]" />
-      <section className="lg:w-2/3 w-full">
-        <section className="text-start mb-10">
+      <div className="absolute top-0 left-0 w-full h-full mx-auto rounded-lg overflow-hidden z-10 blur-[10px]">
+        <Image  {...imgObj} layout='fill' objectFit="cover" alt={bgImage.alt} title={bgImage.title} />
+      </div>
+      <section className="lg:flex hidden bg-main-light w-full h-[60vh]" />
+      <section className="lg:w-2/3 w-full z-20">
+        <section className="text-start mb-10 bg-white p-8 rounded-lg">
           <h2 className="text-4xl my-5">{title}</h2>
           <div className="text-start lg:w-[450px] w-full">
             <BlockContent blocks={content} />
